@@ -1,0 +1,12 @@
+body {
+  background-color: #000;
+  /* font-family: 'Press Start 2P', cursive; */
+}
+.App {
+  /* background-image: url(img/sky.jpg); */
+  background-color: rgb(50, 102, 99);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 1000px;
+  background-size: 100% auto;
+}

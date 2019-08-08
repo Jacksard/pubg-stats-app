@@ -1,0 +1,28 @@
+// enter a name
+// a name is sent to the api
+// grabs name and last 10 matches
+
+// create an array of matches
+// map each item to extract kills for the match
+//create a list of matches according to date and show on screen
+// near each list item show number of kills per the match
+
+/* 
+
+{this.state.result.map(item => {
+            return <li key={item.id}>{item.data[0].name}</li>;
+          })}
+
+
+<Cards result={this.state.result} />
+*/
+
+  /* 
+inside async componentsDidMount
+function call
+await getPlayerObject(urlPlayer, Jacob);
+players name Parameter will come from the input field
+//Function 
+const call = () => {
+  return 
+*/
