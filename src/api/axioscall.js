@@ -1,14 +1,9 @@
 import axios from 'axios';
 import { url } from './actions';
 
-export const callPlayer = (type, playerId) => {
+export const callPlayer = playerId => {
   return axios
-    .get(type + playerId, {
-      headers: {
-        Authorization: 'Bearer ' + process.env.REACT_APP_KEY,
-        Accept: 'application/vnd.api+json'
-      }
-    })
+    .get('http://localhost:5000/api/pubg/player/' + playerId)
     .then(response => {
       console.log(response);
       return response.data;
@@ -37,16 +32,8 @@ export const callMatch = (type, matchId) => {
     });
 };
 
-export const callLifetime = accountId => {
+/* export const callLifetime = accountId => {
   const full = url.lifetime(accountId);
-
-  var config = {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      Autherization: 'Bearer' + process.env.REACT_APP_KEY,
-      Accept: 'application/vnd.api+json'
-    }
-  };
 
   return axios
     .get(full, {
@@ -61,6 +48,6 @@ export const callLifetime = accountId => {
     .catch(error => {
       console.log(error);
     });
-};
+}; */
 
 export const callSeason = (type, playerId) => {};

@@ -1,7 +1,7 @@
 export const urlSeasons = 'https://api.pubg.com/shards/steam/seasons';
 
 export const url = {
-  player: 'https://api.pubg.com/shards/steam/players?filter[playerNames]=',
+  player: 'https://localhost:5000/api/pubg/player/',
   match: 'https://api.pubg.com/shards/steam/matches/',
   lifetime: function(accountId) {
     return (

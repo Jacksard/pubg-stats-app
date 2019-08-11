@@ -1,12 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import { red } from '@material-ui/core/colors';
-import shortid from 'shortid';
 
-import { url } from '../api/actions';
-import { callLifetime } from '../api/axioscall';
+import shortid from 'shortid';
 
 import Grid from '@material-ui/core/Grid';
 
