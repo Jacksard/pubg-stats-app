@@ -14,7 +14,8 @@ class api extends Component {
       playersArray: [],
       loading: false,
       matches: [],
-      playerId: ''
+      playerId: '',
+      lifetime: []
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -34,6 +35,8 @@ class api extends Component {
         var joined = this.state.result.concat(res.data[0]);
         this.setState({ playerId: joined[0].attributes.name });
         this.setState({ result: joined });
+
+        // accountId
         console.log(this.state.result[0].id);
       })
       .catch(error => {
@@ -41,13 +44,16 @@ class api extends Component {
       });
 
     // Lifetime data call
-    /* await callLifetime('account.ae70c0ffc0db479ab5b464c25f702f48')
+    await callLifetime(this.state.result[0].id)
       .then(res => {
+        console.log('DATAAAA');
         console.log(res.data);
+        var joined = this.state.result.concat(res.data);
+        this.setState({ lifetime: joined });
       })
       .catch(error => {
         console.log(error);
-      }); */
+      });
   }
 
   render() {
@@ -65,7 +71,7 @@ class api extends Component {
           <input type='submit' value='Submit' />
         </form>
         <ul>
-          <Cards profile={this.state.result} />
+          <Cards profile={this.state.result} lifetime={this.state.lifetime} />
         </ul>
       </div>
     );

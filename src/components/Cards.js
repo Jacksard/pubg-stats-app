@@ -29,6 +29,10 @@ const useStyles = makeStyles({
   }
 });
 
+const handleLifetime = props => {
+  console.log(props.lifetime);
+};
+
 // Extracts last 5 matches
 const handleMatches = props => {
   const matches = props.profile[0].relationships.matches.data.slice(0, 5);
@@ -57,7 +61,7 @@ const SimpleCard = props => {
               <Card className={classes.card}>
                 {item.attributes.name}
                 <br />
-                {handleMatches(props)}
+                {handleLifetime(props)}
               </Card>
             </li>
           );
