@@ -28,23 +28,23 @@ class api extends Component {
 
   async handlePlayerSubmit(event) {
     event.preventDefault();
-    console.log('THIS:  ' + url.player + this.state.playerName);
+    console.log('URL API:  ' + url.player + this.state.playerName);
     await callPlayer(this.state.playerName)
       .then(res => {
-        console.log(res);
-        var joined = this.state.result.concat(res.data[0]);
-        this.setState({ playerId: joined[0].attributes.name });
-        this.setState({ result: joined });
+        // Build Players Object and push it into PlayersArray.
 
-        // accountId
-        console.log(this.state.result[0].id);
+        var joined = this.state.playersArray.concat(res);
+        this.setState({
+          playersArray: joined
+        });
+        console.log(this.state.playersArray);
       })
       .catch(error => {
         console.log('error: ' + error);
       });
 
     // Lifetime data call
-    await callLifetime(this.state.result[0].id)
+    /*     await callLifetime(this.state.result[0].id)
       .then(res => {
         console.log('DATAAAA');
         console.log(res.data);
@@ -54,8 +54,8 @@ class api extends Component {
       .catch(error => {
         console.log(error);
       });
+  } */
   }
-
   render() {
     return (
       <div>
@@ -71,7 +71,10 @@ class api extends Component {
           <input type='submit' value='Submit' />
         </form>
         <ul>
-          <Cards profile={this.state.result} lifetime={this.state.lifetime} />
+          <Cards
+            player={this.state.playersArray}
+            lifetime={this.state.lifetime}
+          />
         </ul>
       </div>
     );

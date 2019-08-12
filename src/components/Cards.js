@@ -8,9 +8,9 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   card: {
-    minHeight: 200,
-    minWidth: 150,
-    maxWidth: 150,
+    minHeight: 500,
+    minWidth: 350,
+    maxWidth: 350,
     padding: 5
   },
   bullet: {
@@ -35,7 +35,7 @@ const handleLifetime = props => {
 
 // Extracts last 5 matches
 const handleMatches = props => {
-  const matches = props.profile[0].relationships.matches.data.slice(0, 5);
+  const matches = props.player[0].relationships.matches.data.slice(0, 5);
   console.log(matches);
   return matches.map(id => {
     return <button key={shortid.generate()}>{id.id}</button>;
@@ -44,7 +44,7 @@ const handleMatches = props => {
 
 const SimpleCard = props => {
   const classes = useStyles();
-  //const matches = props.profile.relationships.matches.data[0].id;
+  //const matches = props.player.relationships.matches.data[0].id;
 
   return (
     <React.Fragment>
@@ -55,12 +55,20 @@ const SimpleCard = props => {
         alignItems='center'
         className={classes.list}
       >
-        {props.profile.map(item => {
+        {props.player.map(item => {
           return (
             <li key={shortid.generate()}>
               <Card className={classes.card}>
-                {item.attributes.name}
+                {item.name}
                 <br />
+                <ol>
+                  <li>{item.matches[0].id}</li>
+                  <li>{item.matches[1].id}</li>
+                  <li>{item.matches[2].id}</li>
+                  <li>{item.matches[3].id}</li>
+                  <li>{item.matches[4].id}</li>
+                </ol>
+
                 {handleLifetime(props)}
               </Card>
             </li>
@@ -72,23 +80,3 @@ const SimpleCard = props => {
 };
 
 export default SimpleCard;
-
-/* 
-const SimpleCard = props => {
-  const classes = useStyles();
-  return (
-    <Card className={classes.card}>
-      {props.result.map(item => {
-        return <li key={item.id}>{item.attributes.name}</li>;
-      })}
-    </Card>
-  );
-};
-
-*/
-
-/* 
-
-{item.relationships.matches.data.map(id => {
-  return <li key={shortid.generate()}>{id.id}</li>;
-})} */

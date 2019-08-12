@@ -5,7 +5,6 @@ export const callPlayer = playerId => {
   return axios
     .get(url.player + playerId)
     .then(response => {
-      console.log(response);
       return response.data;
     })
     .catch(error => {
