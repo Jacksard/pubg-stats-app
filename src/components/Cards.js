@@ -50,9 +50,9 @@ const SimpleCard = props => {
     <React.Fragment>
       <Grid
         container
-        direction='row'
-        justify='center'
-        alignItems='center'
+        direction="row"
+        justify="center"
+        alignItems="center"
         className={classes.list}
       >
         {props.player.map(item => {
@@ -61,13 +61,14 @@ const SimpleCard = props => {
               <Card className={classes.card}>
                 {item.name}
                 <br />
-                <ol>
-                  <li>{item.matches[0].id}</li>
-                  <li>{item.matches[1].id}</li>
-                  <li>{item.matches[2].id}</li>
-                  <li>{item.matches[3].id}</li>
-                  <li>{item.matches[4].id}</li>
-                </ol>
+                <hr />
+                <p>
+                  <strong>Solo - FPP</strong>
+                </p>
+                <p>
+                  Kills:
+              {item.lifetime.attributes.gameModeStats["solo-fpp"].kills}
+                </p>
 
                 {handleLifetime(props)}
               </Card>
