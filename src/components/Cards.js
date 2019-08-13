@@ -66,8 +66,20 @@ const SimpleCard = props => {
                   <strong>Solo - FPP</strong>
                 </p>
                 <p>
+                  Wins:
+              {item.lifetime.attributes.gameModeStats["solo-fpp"].wins}
+                </p>
+                <p>
                   Kills:
               {item.lifetime.attributes.gameModeStats["solo-fpp"].kills}
+                </p>
+                <p>
+                  Headshot kills:
+              {item.lifetime.attributes.gameModeStats["solo-fpp"].headshotKills}
+                </p>
+                <p>
+                  Longest Kill:
+              {item.lifetime.attributes.gameModeStats["solo-fpp"].longestKill.toFixed(1)}m
                 </p>
 
                 {handleLifetime(props)}
