@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 });
 
 const handleLifetime = props => {
-  console.log(props.lifetime);
+  console.log('Lifetime');
 };
 
 // Extracts last 5 matches
