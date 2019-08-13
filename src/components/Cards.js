@@ -5,13 +5,24 @@ import Card from '@material-ui/core/Card';
 import shortid from 'shortid';
 
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Container from '@material-ui/core/Container';
+
+import { width } from '@material-ui/system';
 
 const useStyles = makeStyles({
   card: {
-    minHeight: 500,
-    minWidth: 350,
-    maxWidth: 350,
+    alignItems: 'stretch',
+    minHeight: 'auto',
+    minWidth: 250,
+    maxWidth: 250,
     padding: 5
+  },
+  cardHead : {
+    display : 'inline-block'
+  },
+  headControls: {
+    backgroundColor: 'red'
   },
   bullet: {
     display: 'inline-block',
@@ -59,6 +70,15 @@ const SimpleCard = props => {
           return (
             <li key={shortid.generate()}>
               <Card className={classes.card}>
+                <Container className={classes.cardHead}>
+
+                <Grid item xs={8} >
+                  <Paper className={classes.headControls}>{item.name}</Paper>
+                </Grid>
+                <Grid item xs={4}>
+                  <Paper className={classes.paper}>(+)</Paper>
+                </Grid>
+                </Container>
                 {item.name}
                 <br />
                 <hr />
