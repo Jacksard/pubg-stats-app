@@ -5,27 +5,33 @@ import Card from '@material-ui/core/Card';
 import shortid from 'shortid';
 
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Clear from '@material-ui/icons/Clear';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles({
   card: {
-    minHeight: 500,
-    minWidth: 350,
-    maxWidth: 350,
+    alignItems: 'stretch',
+    minHeight: 'auto',
+    minWidth: 250,
+    maxWidth: 250,
     padding: 5
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)'
+
+  headLeft: {
+    backgroundColor: 'lightBlue',
+    borderRadius: '0px',
+    margin: '0',
+    height: '90px',
+    lineHeight: '90px',
+    textAlign: 'center'
   },
-  title: {
-    fontSize: 14
-  },
-  pos: {
-    marginBottom: 12
-  },
-  list: {
-    flexGrow: 1
+  headRight: {
+    cursor: 'pointer',
+    borderRadius: '50%',
+    margin: 'auto',
+    float: 'right'
   }
 });
 
@@ -50,36 +56,49 @@ const SimpleCard = props => {
     <React.Fragment>
       <Grid
         container
-        direction="row"
-        justify="center"
-        alignItems="center"
+        direction='row'
+        justify='center'
+        alignItems='center'
         className={classes.list}
       >
         {props.player.map(item => {
           return (
             <li key={shortid.generate()}>
               <Card className={classes.card}>
-                {item.name}
-                <br />
+                <div className={classes.root}>
+                  <Grid container spacing={0}>
+                    <Grid item xs={12} className={classes.headLeft}>
+                      {item.name}
+                      <Clear className={classes.headRight} />
+                    </Grid>
+                  </Grid>
+                </div>
+
                 <hr />
                 <p>
                   <strong>Solo - FPP</strong>
                 </p>
                 <p>
                   Wins:
-              {item.lifetime.attributes.gameModeStats["solo-fpp"].wins}
+                  {item.lifetime.attributes.gameModeStats['solo-fpp'].wins}
                 </p>
                 <p>
                   Kills:
-              {item.lifetime.attributes.gameModeStats["solo-fpp"].kills}
+                  {item.lifetime.attributes.gameModeStats['solo-fpp'].kills}
                 </p>
                 <p>
                   Headshot kills:
-              {item.lifetime.attributes.gameModeStats["solo-fpp"].headshotKills}
+                  {
+                    item.lifetime.attributes.gameModeStats['solo-fpp']
+                      .headshotKills
+                  }
                 </p>
                 <p>
                   Longest Kill:
-              {item.lifetime.attributes.gameModeStats["solo-fpp"].longestKill.toFixed(1)}m
+                  {item.lifetime.attributes.gameModeStats[
+                    'solo-fpp'
+                  ].longestKill.toFixed(1)}
+                  m
                 </p>
 
 
