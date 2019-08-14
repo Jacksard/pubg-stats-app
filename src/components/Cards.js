@@ -58,7 +58,7 @@ const SimpleCard = props => {
         {props.player.map((item, i) => {
           return (
             <li key={shortid.generate()} data-key={i}>
-              <Card className={classes.card}>
+              <Card className={classes.card} key={item.id}>
                 <div className={classes.root}>
                   <Grid container spacing={0}>
                     <Grid item xs={12} className={classes.headLeft}>

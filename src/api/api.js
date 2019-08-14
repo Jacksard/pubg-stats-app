@@ -31,9 +31,12 @@ class api extends Component {
   }
 
 
-  handlePlayerDelete(e) {
+  async handlePlayerDelete(id) {
+    console.log(id);
+    var joined = this.state.playersArray.splice(id);
+    console.log(joined);
+    this.setState({ playersArray: joined })
 
-    console.log(e);
   }
 
 
