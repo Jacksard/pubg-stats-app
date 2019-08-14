@@ -34,25 +34,35 @@ class api extends Component {
     this.setState({ loading: true })
     event.preventDefault();
     console.log('URL API:  ' + url.player + this.state.playerName);
-    await callPlayer(this.state.playerName)
-      .then(res => {
-        // Build Players Object and push it into PlayersArray.
-        if (res === undefined) {
-          this.setState({ isError: true });
-          this.setState({ msg: 'Player not found!' });
-          this.setState({ loading: false })
-        } else {
-          var joined = this.state.playersArray.concat(res);
-          this.setState({
-            playersArray: joined
-          });
-          this.setState({ loading: false })
-          console.log(this.state.playersArray);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+
+
+    // Search if player name exists in players array, to avoid redundant additional API call
+    let userExist = this.state.playersArray.find(item => item.name === this.state.playerName)
+    if (userExist === undefined) {
+      await callPlayer(this.state.playerName)
+        .then(res => {
+          // Build Players Object and push it into PlayersArray.
+          if (res === undefined) {
+            this.setState({ isError: true });
+            this.setState({ msg: 'Player not found!' });
+            this.setState({ loading: false })
+          } else {
+            var joined = this.state.playersArray.concat(res);
+            this.setState({
+              playersArray: joined
+            });
+            this.setState({ loading: false })
+            console.log(this.state.playersArray);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else {
+      console.log('User added');
+      this.setState({ loading: false });
+      return null
+    }
 
   }
   render() {
@@ -80,7 +90,7 @@ class api extends Component {
               lifetime={this.state.lifetime}
             />}
         </ul>
-      </div>
+      </div >
     );
   }
 }
