@@ -6,9 +6,9 @@ import shortid from 'shortid';
 
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Container from '@material-ui/core/Container';
-
-import { width } from '@material-ui/system';
+import Clear from '@material-ui/icons/Clear';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles({
   card: {
@@ -18,25 +18,20 @@ const useStyles = makeStyles({
     maxWidth: 250,
     padding: 5
   },
-  cardHead : {
-    display : 'inline-block'
+
+  headLeft: {
+    backgroundColor: 'lightBlue',
+    borderRadius: '0px',
+    margin: '0',
+    height: '90px',
+    lineHeight: '90px',
+    textAlign: 'center'
   },
-  headControls: {
-    backgroundColor: 'red'
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)'
-  },
-  title: {
-    fontSize: 14
-  },
-  pos: {
-    marginBottom: 12
-  },
-  list: {
-    flexGrow: 1
+  headRight: {
+    cursor: 'pointer',
+    borderRadius: '50%',
+    margin: 'auto',
+    float: 'right'
   }
 });
 
@@ -61,45 +56,49 @@ const SimpleCard = props => {
     <React.Fragment>
       <Grid
         container
-        direction="row"
-        justify="center"
-        alignItems="center"
+        direction='row'
+        justify='center'
+        alignItems='center'
         className={classes.list}
       >
         {props.player.map(item => {
           return (
             <li key={shortid.generate()}>
               <Card className={classes.card}>
-                <Container className={classes.cardHead}>
+                <div className={classes.root}>
+                  <Grid container spacing={0}>
+                    <Grid item xs={12} className={classes.headLeft}>
+                      {item.name}
+                      <Clear className={classes.headRight} />
+                    </Grid>
+                  </Grid>
+                </div>
 
-                <Grid item xs={8} >
-                  <Paper className={classes.headControls}>{item.name}</Paper>
-                </Grid>
-                <Grid item xs={4}>
-                  <Paper className={classes.paper}>(+)</Paper>
-                </Grid>
-                </Container>
-                {item.name}
-                <br />
                 <hr />
                 <p>
                   <strong>Solo - FPP</strong>
                 </p>
                 <p>
                   Wins:
-              {item.lifetime.attributes.gameModeStats["solo-fpp"].wins}
+                  {item.lifetime.attributes.gameModeStats['solo-fpp'].wins}
                 </p>
                 <p>
                   Kills:
-              {item.lifetime.attributes.gameModeStats["solo-fpp"].kills}
+                  {item.lifetime.attributes.gameModeStats['solo-fpp'].kills}
                 </p>
                 <p>
                   Headshot kills:
-              {item.lifetime.attributes.gameModeStats["solo-fpp"].headshotKills}
+                  {
+                    item.lifetime.attributes.gameModeStats['solo-fpp']
+                      .headshotKills
+                  }
                 </p>
                 <p>
                   Longest Kill:
-              {item.lifetime.attributes.gameModeStats["solo-fpp"].longestKill.toFixed(1)}m
+                  {item.lifetime.attributes.gameModeStats[
+                    'solo-fpp'
+                  ].longestKill.toFixed(1)}
+                  m
                 </p>
 
                 {handleLifetime(props)}
