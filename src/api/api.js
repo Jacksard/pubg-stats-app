@@ -14,7 +14,6 @@ class api extends Component {
       playerName: '',
       playersArray: [],
       loading: false,
-      lifetime: [],
       error: {
         isError: false,
         msg: ''
@@ -30,13 +29,19 @@ class api extends Component {
     this.setState({ playerName: event.target.value });
   }
 
+
+  async handlePlayerDelete(event) {
+    console.log(event)
+  }
+
+
   async handlePlayerSubmit(event) {
     this.setState({ loading: true })
     event.preventDefault();
     console.log('URL API:  ' + url.player + this.state.playerName);
 
 
-    // Search if player name exists in players array, to avoid redundant additional API call
+    // check if player name exists in players array before callPlayer, to avoid redundant API call
     let userExist = this.state.playersArray.find(item => item.name === this.state.playerName)
     if (userExist === undefined) {
       await callPlayer(this.state.playerName)

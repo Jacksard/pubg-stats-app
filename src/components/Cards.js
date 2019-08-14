@@ -5,7 +5,7 @@ import Card from '@material-ui/core/Card';
 import shortid from 'shortid';
 
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+
 import Clear from '@material-ui/icons/Clear';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
@@ -42,41 +42,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const handleLifetime = props => {
-  console.log('Lifetime');
-};
-
-
-
-
-
-
-
-// Extracts last 5 matches
-const handleMatches = props => {
-  const matches = props.player[0].relationships.matches.data.slice(0, 5);
-  console.log(matches);
-  return matches.map(id => {
-    return <button key={shortid.generate()}>{id.id}</button>;
-  });
-};
 
 const SimpleCard = props => {
-  const [values, setValues] = React.useState({
-    type: 'solo-fpp',
-  });
   const classes = useStyles();
-  //const matches = props.player.relationships.matches.data[0].id;
-  const handleChange = (event) => {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }
-
-
-
-    ));
-  }
 
   return (
     <React.Fragment>
