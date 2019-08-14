@@ -9,6 +9,7 @@
     "dotenv": "^8.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-loader-spinner": "^3.1.2",
     "react-scripts": "^3.0.1",
     "shortid": "^2.2.14"
   },

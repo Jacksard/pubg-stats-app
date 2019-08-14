@@ -5,6 +5,8 @@ import './api.css';
 import { callPlayer } from './axioscall';
 import { url } from './actions';
 
+import Loader from 'react-loader-spinner'
+
 class api extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +31,7 @@ class api extends Component {
   }
 
   async handlePlayerSubmit(event) {
+    this.setState({ loading: true })
     event.preventDefault();
     console.log('URL API:  ' + url.player + this.state.playerName);
     await callPlayer(this.state.playerName)
@@ -42,6 +45,7 @@ class api extends Component {
           this.setState({
             playersArray: joined
           });
+          this.setState({ loading: false })
           console.log(this.state.playersArray);
         }
       })
@@ -67,10 +71,13 @@ class api extends Component {
           {this.state.isError === true ? <h4>{this.state.msg}</h4> : null}
         </form>
         <ul>
-          <Cards
-            player={this.state.playersArray}
-            lifetime={this.state.lifetime}
-          />
+          {this.state.loading === true ? <Loader type="Puff"
+            color="#00BFFF"
+            height="100"
+            width="100" /> : <Cards
+              player={this.state.playersArray}
+              lifetime={this.state.lifetime}
+            />}
         </ul>
       </div>
     );
