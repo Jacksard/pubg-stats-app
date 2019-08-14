@@ -40,6 +40,7 @@ class api extends Component {
         if (res === undefined) {
           this.setState({ isError: true });
           this.setState({ msg: 'Player not found!' });
+          this.setState({ loading: false })
         } else {
           var joined = this.state.playersArray.concat(res);
           this.setState({
@@ -73,8 +74,8 @@ class api extends Component {
         <ul>
           {this.state.loading === true ? <Loader type="Puff"
             color="#00BFFF"
-            height="100"
-            width="100" /> : <Cards
+            height={100}
+            width={100} /> : <Cards
               player={this.state.playersArray}
               lifetime={this.state.lifetime}
             />}

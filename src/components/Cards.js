@@ -10,7 +10,9 @@ import Clear from '@material-ui/icons/Clear';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
-const useStyles = makeStyles({
+
+
+const useStyles = makeStyles(theme => ({
   card: {
     alignItems: 'stretch',
     minHeight: 'auto',
@@ -32,12 +34,23 @@ const useStyles = makeStyles({
     borderRadius: '50%',
     margin: 'auto',
     float: 'right'
+  },
+
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
   }
-});
+}));
 
 const handleLifetime = props => {
   console.log('Lifetime');
 };
+
+
+
+
+
+
 
 // Extracts last 5 matches
 const handleMatches = props => {
@@ -49,8 +62,21 @@ const handleMatches = props => {
 };
 
 const SimpleCard = props => {
+  const [values, setValues] = React.useState({
+    type: 'solo-fpp',
+  });
   const classes = useStyles();
   //const matches = props.player.relationships.matches.data[0].id;
+  const handleChange = (event) => {
+    setValues(oldValues => ({
+      ...oldValues,
+      [event.target.name]: event.target.value,
+    }
+
+
+
+    ));
+  }
 
   return (
     <React.Fragment>
@@ -69,12 +95,20 @@ const SimpleCard = props => {
                   <Grid container spacing={0}>
                     <Grid item xs={12} className={classes.headLeft}>
                       {item.name}
+
                       <Clear className={classes.headRight} />
                     </Grid>
                   </Grid>
                 </div>
 
                 <hr />
+                <Fab color="primary" aria-label="add" className={classes.fab} size="small">
+                  <AddIcon />
+                </Fab>
+
+
+
+
                 <p>
                   <strong>Solo - FPP</strong>
                 </p>
