@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 
 const SimpleCard = props => {
   const classes = useStyles();
-
+  console.log(props.delete)
   return (
     <React.Fragment>
       <Grid
@@ -55,16 +55,16 @@ const SimpleCard = props => {
         alignItems='center'
         className={classes.list}
       >
-        {props.player.map(item => {
+        {props.player.map((item, i) => {
           return (
-            <li key={shortid.generate()}>
+            <li key={shortid.generate()} data-key={i}>
               <Card className={classes.card}>
                 <div className={classes.root}>
                   <Grid container spacing={0}>
                     <Grid item xs={12} className={classes.headLeft}>
                       {item.name}
 
-                      <Clear className={classes.headRight} />
+                      <Clear className={classes.headRight} data-key={i} onClick={props.delete.bind(this, i)} />
                     </Grid>
                   </Grid>
                 </div>

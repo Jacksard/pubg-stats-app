@@ -22,6 +22,7 @@ class api extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handlePlayerSubmit = this.handlePlayerSubmit.bind(this);
+    this.handlePlayerDelete = this.handlePlayerDelete.bind(this);
   }
 
   handleChange(event) {
@@ -30,8 +31,9 @@ class api extends Component {
   }
 
 
-  async handlePlayerDelete(event) {
-    console.log(event)
+  handlePlayerDelete(e) {
+
+    console.log(e);
   }
 
 
@@ -92,7 +94,7 @@ class api extends Component {
             height={100}
             width={100} /> : <Cards
               player={this.state.playersArray}
-              lifetime={this.state.lifetime}
+              delete={this.handlePlayerDelete}
             />}
         </ul>
       </div >
