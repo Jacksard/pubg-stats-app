@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 
 import Cards from '../components/Cards';
 import './api.css';
-import { callPlayer, callLifetime } from './axioscall';
+import { callPlayer } from './axioscall';
 import { url } from './actions';
 
 class api extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       playerName: '',
-      result: [],
       playersArray: [],
       loading: false,
-      matches: [],
-      playerId: '',
-      lifetime: []
+      lifetime: [],
+      error: {
+        isError: false,
+        msg: ''
+      }
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -23,6 +24,7 @@ class api extends Component {
   }
 
   handleChange(event) {
+    this.setState({ msg: '', isError: false })
     this.setState({ playerName: event.target.value });
   }
 
@@ -32,29 +34,21 @@ class api extends Component {
     await callPlayer(this.state.playerName)
       .then(res => {
         // Build Players Object and push it into PlayersArray.
-
-        var joined = this.state.playersArray.concat(res);
-        this.setState({
-          playersArray: joined
-        });
-        console.log(this.state.playersArray);
-      })
-      .catch(error => {
-        console.log('error: ' + error);
-      });
-
-    // Lifetime data call
-    /*     await callLifetime(this.state.result[0].id)
-      .then(res => {
-        console.log('DATAAAA');
-        console.log(res.data);
-        var joined = this.state.result.concat(res.data);
-        this.setState({ lifetime: joined });
+        if (res === undefined) {
+          this.setState({ isError: true });
+          this.setState({ msg: 'Player not found!' });
+        } else {
+          var joined = this.state.playersArray.concat(res);
+          this.setState({
+            playersArray: joined
+          });
+          console.log(this.state.playersArray);
+        }
       })
       .catch(error => {
         console.log(error);
       });
-  } */
+
   }
   render() {
     return (
@@ -69,6 +63,8 @@ class api extends Component {
             />
           </label>
           <input type='submit' value='Submit' />
+
+          {this.state.isError === true ? <h4>{this.state.msg}</h4> : null}
         </form>
         <ul>
           <Cards

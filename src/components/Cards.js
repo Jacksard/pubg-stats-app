@@ -82,7 +82,7 @@ const SimpleCard = props => {
               {item.lifetime.attributes.gameModeStats["solo-fpp"].longestKill.toFixed(1)}m
                 </p>
 
-                {handleLifetime(props)}
+
               </Card>
             </li>
           );
