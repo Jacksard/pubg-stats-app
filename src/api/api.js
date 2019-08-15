@@ -31,13 +31,22 @@ class api extends Component {
   }
 
 
-  async handlePlayerDelete(id) {
+  handlePlayerDelete(id) {
+    this.setState({ loading: true });
     console.log(id);
-    var joined = this.state.playersArray.splice(id);
+    const joined = [...this.state.playersArray];
+    joined.splice(id, 1);
+    this.setState({ playersArray: joined });
+    this.setState({ loading: false });
+
+  }
+  /* async handlePlayerDelete(id) {
+    console.log(id);
+    var joined = this.state.playersArray.splice(id, 1);
     console.log(joined);
     this.setState({ playersArray: joined })
 
-  }
+  } */
 
 
   async handlePlayerSubmit(event) {
