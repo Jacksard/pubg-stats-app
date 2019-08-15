@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { url } from './actions';
 
-export const callPlayer = playerId => {
+export const callPlayer = playerName => {
   return axios
-    .get(url.player + playerId)
+    .get(url.player + playerName)
     .then(response => {
       return response.data;
     })
@@ -11,6 +11,3 @@ export const callPlayer = playerId => {
       console.log(error);
     });
 };
-
-
-export const callSeason = (type, playerId) => { };

@@ -40,13 +40,6 @@ class api extends Component {
     this.setState({ loading: false });
 
   }
-  /* async handlePlayerDelete(id) {
-    console.log(id);
-    var joined = this.state.playersArray.splice(id, 1);
-    console.log(joined);
-    this.setState({ playersArray: joined })
-
-  } */
 
 
   async handlePlayerSubmit(event) {
@@ -71,6 +64,7 @@ class api extends Component {
               playersArray: joined
             });
             this.setState({ loading: false })
+            this.setState({ playerName: '' })
             console.log(this.state.playersArray);
           }
         })
@@ -101,13 +95,11 @@ class api extends Component {
           {this.state.isError === true ? <h4>{this.state.msg}</h4> : null}
         </form>
         <ul>
-          {this.state.loading === true ? <Loader type="Puff"
-            color="#00BFFF"
-            height={100}
-            width={100} /> : <Cards
-              player={this.state.playersArray}
-              delete={this.handlePlayerDelete}
-            />}
+          <Cards
+            player={this.state.playersArray}
+            delete={this.handlePlayerDelete}
+            isLoading={this.state.loading}
+          />
         </ul>
       </div >
     );
