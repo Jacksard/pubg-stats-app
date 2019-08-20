@@ -1,7 +1,9 @@
 .card {
   min-width: 250px;
   max-width: 250px;
-  padding: 5px;
+  height: 330px;
+  padding: 10px;
+  background-color: rgb(87, 175, 124);
 }
 
 .header {
@@ -50,8 +52,12 @@
 }
 
 .fab {
+  margin: auto;
+  top: -15px;
 }
 
 .fabDiv {
-  background-color: rgb(0, 167, 75);
+  background-color: rgb(121, 151, 39);
+  border: 2px solid black;
+  height: 15px;
 }
