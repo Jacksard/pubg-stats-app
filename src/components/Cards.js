@@ -20,46 +20,46 @@ class SimpleCard extends Component {
     this.state = {
       clear: false
     };
+
+    this.handleHoverOn = this.handleHoverOn.bind(this);
+    this.handleHoverOff = this.handleHoverOff.bind(this);
   }
+
   handleHoverOn() {
     console.log('hover on test');
-    this.setState({ clear: true });
+    this.setState(prevState => ({
+      clear: !prevState.clear
+    }));
   }
   handleHoverOff() {
-    console.log('hover on test');
-    this.setState({ clear: false });
+    console.log('hover on test off');
+    this.setState(prevState => ({
+      clear: !prevState.clear
+    }));
   }
   render() {
     return (
       <React.Fragment>
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid container direction='row' justify='center' alignItems='center'>
           {this.props.isLoading === false ? (
             this.props.player.map((item, i) => {
               return (
                 <li key={shortid.generate()}>
-                  <Card className="card">
+                  <Card className='card'>
                     <Grid container spacing={0}>
-                      <Grid item xs={12} className="headLeft">
+                      <Grid item xs={12} className='headLeft'>
                         {item.name}
 
                         <Clear
                           onClick={this.props.delete.bind(this, i)}
-                          /*  onMouseEnter={this.handleHoverOn}
-                          onMouseLeave={this.handleHoverOff} */
-                          className="removeCard"
+                          onMouseEnter={this.handleHoverOn}
+                          onMouseLeave={this.handleHoverOff}
+                          className='removeCard'
                         />
                       </Grid>
                     </Grid>
                     <hr />
-                    <Fab
-                      color="primary"
-                      aria-label="add"
-                      className="fab"
-                      size="small"
-                    >
-                      <AddIcon className="addIcon" />
-                    </Fab>
-                    <h4 className={this.state.clear ? 'red' : 'blue'}>TEST</h4>
+
                     <p>
                       <strong>Solo - FPP</strong>
                     </p>
@@ -85,12 +85,22 @@ class SimpleCard extends Component {
                       ].longestKill.toFixed(1)}
                       m
                     </p>
+                    <div className='fabDiv'>
+                      <Fab
+                        color='primary'
+                        aria-label='add'
+                        className='fab'
+                        size='small'
+                      >
+                        <AddIcon className='addIcon' />
+                      </Fab>
+                    </div>
                   </Card>
                 </li>
               );
             })
           ) : (
-            <Loader type="Puff" color="#00BFFF" height={100} width={100} />
+            <Loader type='Puff' color='#00BFFF' height={100} width={100} />
           )}
         </Grid>
       </React.Fragment>
