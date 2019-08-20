@@ -1,0 +1,48 @@
+.card {
+  min-width: 250px;
+  max-width: 250px;
+  padding: 5px;
+}
+
+.header {
+  background-color: lightBlue;
+  border-radius: 0px;
+  margin: 0px;
+  height: 90px;
+  line-height: 90px;
+  text-align: center;
+}
+
+.headLeft {
+  background-color: lightBlue;
+  border-radius: 0px;
+  margin: 0px;
+  height: 90px;
+  line-height: 90px;
+  text-align: center;
+}
+
+.removeCard {
+  cursor: pointer;
+  border-radius: 50%;
+  margin: auto;
+  float: right;
+  background-color: yellow;
+}
+
+.removeCardHover {
+  cursor: pointer;
+  border-radius: '';
+  margin: auto;
+  float: right;
+  transform: scale(2);
+  background-color: 'red';
+}
+
+.red {
+  color: red;
+  transform: scale(2);
+}
+.blue {
+  color: 'blue';
+}

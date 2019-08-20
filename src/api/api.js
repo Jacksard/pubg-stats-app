@@ -5,7 +5,6 @@ import './api.css';
 import { callPlayer } from './axioscall';
 import { url } from './actions';
 
-import Loader from 'react-loader-spinner'
 
 class api extends Component {
   constructor(props) {
