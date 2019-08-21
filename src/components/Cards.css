@@ -2,8 +2,10 @@
   min-width: 250px;
   max-width: 250px;
   height: 330px;
-  padding: 10px;
-  background-color: rgb(87, 175, 124);
+  padding: 5px;
+  margin: auto;
+  background-color: rgb(41, 41, 41) !important;
+  color: white !important;
 }
 
 .header {
@@ -16,7 +18,7 @@
 }
 
 .headLeft {
-  background-color: lightBlue;
+  background-color: rgb(47, 184, 230);
   border-radius: 0px;
   margin: 0px;
   height: 90px;
@@ -54,6 +56,7 @@
 .fab {
   margin: auto;
   top: -15px;
+  border: 1px solid yellow !important;
 }
 
 .fabDiv {
