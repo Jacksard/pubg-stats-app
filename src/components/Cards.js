@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Card from '@material-ui/core/Card';
 
 import shortid from 'shortid';
@@ -11,6 +11,8 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
 import Loader from 'react-loader-spinner';
+
+import { Container } from '@material-ui/core';
 
 import './Cards.css';
 
@@ -58,8 +60,19 @@ class SimpleCard extends Component {
                         />
                       </Grid>
                     </Grid>
-                    <hr />
 
+                    <hr />
+                    <Grid container spacing={1}>
+                      <Grid item xs={4} className='gameType'>
+                        solo
+                      </Grid>
+                      <Grid item xs={4} className='gameType'>
+                        dou
+                      </Grid>
+                      <Grid item xs={4} className='gameType'>
+                        squads
+                      </Grid>
+                    </Grid>
                     <p>
                       <strong>Solo - FPP</strong>
                     </p>

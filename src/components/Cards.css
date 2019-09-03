@@ -64,3 +64,9 @@
   border: 2px solid black;
   height: 15px;
 }
+
+.gameType {
+  background-color: rgb(36, 95, 73);
+  padding: 5 !important;
+  margin: 0 !important;
+}
