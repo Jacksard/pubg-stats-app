@@ -20,11 +20,18 @@ class SimpleCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clear: false
+      clear: false,
+      gameType: ''
     };
 
     this.handleHoverOn = this.handleHoverOn.bind(this);
     this.handleHoverOff = this.handleHoverOff.bind(this);
+  }
+
+  handleTest(x) {
+    this.setState({ gameType: x });
+    console.log('yo: ' + x);
+    console.log(this.state.gameType);
   }
 
   handleHoverOn() {
@@ -39,7 +46,13 @@ class SimpleCard extends Component {
       clear: !prevState.clear
     }));
   }
+
   render() {
+    const gameType = this.state.gameType;
+
+    //if (gameType === 'solo') {
+    //  style = 'it is SOLO!';
+    //}
     return (
       <React.Fragment>
         <Grid container direction='row' justify='center' alignItems='center'>
@@ -60,19 +73,37 @@ class SimpleCard extends Component {
                         />
                       </Grid>
                     </Grid>
-
+                    {this.state.gameType}
                     <hr />
-                    <Grid container spacing={1}>
-                      <Grid item xs={4} className='gameType'>
+
+                    <Grid container spacing={1} className='gameTypeContainer'>
+                      <Grid
+                        value='solo'
+                        item
+                        xs={4}
+                        className='gameType'
+                        onClick={() => this.handleTest('solo')}
+                      >
                         solo
                       </Grid>
-                      <Grid item xs={4} className='gameType'>
+                      <Grid
+                        item
+                        xs={4}
+                        className='gameType'
+                        onClick={() => this.handleTest('dou')}
+                      >
                         dou
                       </Grid>
-                      <Grid item xs={4} className='gameType'>
+                      <Grid
+                        item
+                        xs={4}
+                        className='gameType'
+                        onClick={() => this.handleTest('squad')}
+                      >
                         squads
                       </Grid>
                     </Grid>
+
                     <p>
                       <strong>Solo - FPP</strong>
                     </p>
