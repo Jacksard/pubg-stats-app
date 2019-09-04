@@ -1,7 +1,14 @@
 import React from 'react';
 
-const solo = () => {
-  return <div></div>;
+const Solo = () => {
+  return (
+    <div>
+      SOLO
+      <br />
+      wins:
+      <br /> some other data
+    </div>
+  );
 };
 
-export default solo;
+export default Solo;

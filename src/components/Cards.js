@@ -16,6 +16,10 @@ import { Container } from '@material-ui/core';
 
 import './Cards.css';
 
+import Solo from './miniComponents/solo';
+import Dou from './miniComponents/dou';
+import Squad from './miniComponents/squad';
+
 class SimpleCard extends Component {
   constructor(props) {
     super(props);
@@ -54,13 +58,13 @@ class SimpleCard extends Component {
     let currentGameType;
     switch (gameType) {
       case 'solo':
-        currentGameType = 'Solo game!';
+        currentGameType = <Solo />;
         break;
       case 'dou':
-        currentGameType = 'Dou game! Where is your friend?';
+        currentGameType = <Dou />;
         break;
       case 'squad':
-        currentGameType = 'Squad game! with all your friends!';
+        currentGameType = <Squad />;
         break;
       default:
         currentGameType = 'DEFAULT GAME!';
@@ -117,7 +121,7 @@ class SimpleCard extends Component {
                       </Grid>
                     </Grid>
                     {currentGameType}
-                    <p>
+                    {/* <p>
                       <strong>Solo - FPP</strong>
                     </p>
                     <p>
@@ -141,7 +145,7 @@ class SimpleCard extends Component {
                         'solo-fpp'
                       ].longestKill.toFixed(1)}
                       m
-                    </p>
+                    </p> */}
                     <div className='fabDiv'>
                       <Fab
                         color='primary'
