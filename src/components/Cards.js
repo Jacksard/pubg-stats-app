@@ -21,7 +21,7 @@ class SimpleCard extends Component {
     super(props);
     this.state = {
       clear: false,
-      gameType: ''
+      gameType: null
     };
 
     this.handleHoverOn = this.handleHoverOn.bind(this);
@@ -30,6 +30,7 @@ class SimpleCard extends Component {
   }
 
   handleTest(x) {
+    console.log(x);
     this.setState({ gameType: x });
   }
 
@@ -50,9 +51,21 @@ class SimpleCard extends Component {
     console.log(this.state.gameType);
     const gameType = this.state.gameType;
 
-    //if (gameType === 'solo') {
-    //  style = 'it is SOLO!';
-    //}
+    let currentGameType;
+    switch (gameType) {
+      case 'solo':
+        currentGameType = 'Solo game!';
+        break;
+      case 'dou':
+        currentGameType = 'Dou game! Where is your friend?';
+        break;
+      case 'squad':
+        currentGameType = 'Squad game! with all your friends!';
+        break;
+      default:
+        currentGameType = 'DEFAULT GAME!';
+    }
+
     return (
       <React.Fragment>
         <Grid container direction='row' justify='center' alignItems='center'>
@@ -82,7 +95,7 @@ class SimpleCard extends Component {
                         item
                         xs={4}
                         className='gameType'
-                        onClick={() => this.handleTest('solo')}
+                        onClick={this.handleTest.bind(this, 'solo')}
                       >
                         solo
                       </Grid>
@@ -90,7 +103,7 @@ class SimpleCard extends Component {
                         item
                         xs={4}
                         className='gameType'
-                        onClick={() => this.handleTest('dou')}
+                        onClick={this.handleTest.bind(this, 'dou')}
                       >
                         dou
                       </Grid>
@@ -98,13 +111,12 @@ class SimpleCard extends Component {
                         item
                         xs={4}
                         className='gameType'
-                        onClick={() => this.handleTest('squad')}
+                        onClick={this.handleTest.bind(this, 'squad')}
                       >
                         squads
                       </Grid>
                     </Grid>
-
-                    {gameType}
+                    {currentGameType}
                     <p>
                       <strong>Solo - FPP</strong>
                     </p>
