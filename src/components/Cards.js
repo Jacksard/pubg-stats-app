@@ -26,12 +26,11 @@ class SimpleCard extends Component {
 
     this.handleHoverOn = this.handleHoverOn.bind(this);
     this.handleHoverOff = this.handleHoverOff.bind(this);
+    this.handleTest = this.handleTest.bind(this);
   }
 
   handleTest(x) {
     this.setState({ gameType: x });
-    console.log('yo: ' + x);
-    console.log(this.state.gameType);
   }
 
   handleHoverOn() {
@@ -48,6 +47,7 @@ class SimpleCard extends Component {
   }
 
   render() {
+    console.log(this.state.gameType);
     const gameType = this.state.gameType;
 
     //if (gameType === 'solo') {
@@ -73,7 +73,7 @@ class SimpleCard extends Component {
                         />
                       </Grid>
                     </Grid>
-                    {this.state.gameType}
+
                     <hr />
 
                     <Grid container spacing={1} className='gameTypeContainer'>
@@ -104,6 +104,7 @@ class SimpleCard extends Component {
                       </Grid>
                     </Grid>
 
+                    {gameType}
                     <p>
                       <strong>Solo - FPP</strong>
                     </p>

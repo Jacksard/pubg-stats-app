@@ -66,12 +66,17 @@
   height: 15px;
 }
 
+.gameTypeContainer {
+  margin: 0 !important;
+  width: auto !important;
+}
 .gameType {
   background-color: rgb(36, 95, 73);
   padding: 5 !important;
   margin: 0 !important;
   cursor: pointer !important;
   font-family: 'Courier New', Courier, monospace;
+  border: 1px solid rgb(72, 184, 122);
 }
 .gameType:hover {
   background-color: rgb(162, 197, 35);
@@ -81,9 +86,4 @@
 }
 .gameType:active {
   background-color: rgb(146, 8, 66);
-}
-
-.gameTypeContainer {
-  margin: 0 !important;
-  width: auto !important;
 }
