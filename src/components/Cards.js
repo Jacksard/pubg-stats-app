@@ -63,7 +63,9 @@ class SimpleCard extends Component {
     let currentGameType;
     switch (gameType) {
       case 'solo':
-        currentGameType = <Solo />;
+        currentGameType = (
+          <Solo data={this.state.player} index={this.state.index} />
+        );
         break;
       case 'dou':
         currentGameType = <Dou />;
@@ -112,7 +114,7 @@ class SimpleCard extends Component {
                         item
                         xs={4}
                         className='gameType'
-                        onClick={this.handleGameType.bind(this, 'dou')}
+                        onClick={this.handleGameType.bind(this, 'dou', i)}
                       >
                         dou
                       </Grid>
@@ -120,12 +122,11 @@ class SimpleCard extends Component {
                         item
                         xs={4}
                         className='gameType'
-                        onClick={this.handleGameType.bind(this, 'squad')}
+                        onClick={this.handleGameType.bind(this, 'squad', i)}
                       >
                         squads
                       </Grid>
                     </Grid>
-
                     {currentGameType}
                     {/* <p>
                       <strong>Solo - FPP</strong>

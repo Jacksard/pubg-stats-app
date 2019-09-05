@@ -5,6 +5,7 @@ const Solo = props => {
   return (
     <div>
       SOLO
+      {}
       <br />
       wins:
       <br /> some other data
