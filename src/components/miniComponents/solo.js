@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Solo = () => {
+const Solo = props => {
+  console.log(props);
   return (
     <div>
       SOLO

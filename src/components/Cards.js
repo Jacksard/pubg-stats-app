@@ -25,17 +25,20 @@ class SimpleCard extends Component {
     super(props);
     this.state = {
       clear: false,
-      gameType: null
+      gameType: null,
+      index: null
     };
 
     this.handleHoverOn = this.handleHoverOn.bind(this);
     this.handleHoverOff = this.handleHoverOff.bind(this);
-    this.handleTest = this.handleTest.bind(this);
+    this.handleGameType = this.handleGameType.bind(this);
   }
 
-  handleTest(x) {
+  handleGameType(x, i) {
     console.log(x);
+    console.log(i);
     this.setState({ gameType: x });
+    this.setState({ index: i });
   }
 
   handleHoverOn() {
@@ -52,6 +55,8 @@ class SimpleCard extends Component {
   }
 
   render() {
+    function test(i, g) {}
+
     console.log(this.state.gameType);
     const gameType = this.state.gameType;
 
@@ -99,7 +104,7 @@ class SimpleCard extends Component {
                         item
                         xs={4}
                         className='gameType'
-                        onClick={this.handleTest.bind(this, 'solo')}
+                        onClick={this.handleGameType.bind(this, 'solo', i)}
                       >
                         solo
                       </Grid>
@@ -107,7 +112,7 @@ class SimpleCard extends Component {
                         item
                         xs={4}
                         className='gameType'
-                        onClick={this.handleTest.bind(this, 'dou')}
+                        onClick={this.handleGameType.bind(this, 'dou')}
                       >
                         dou
                       </Grid>
@@ -115,11 +120,12 @@ class SimpleCard extends Component {
                         item
                         xs={4}
                         className='gameType'
-                        onClick={this.handleTest.bind(this, 'squad')}
+                        onClick={this.handleGameType.bind(this, 'squad')}
                       >
                         squads
                       </Grid>
                     </Grid>
+
                     {currentGameType}
                     {/* <p>
                       <strong>Solo - FPP</strong>
