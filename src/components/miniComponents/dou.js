@@ -5,25 +5,17 @@ const Dou = props => {
   console.log('index:' + props.index);
   return (
     <div>
-      Dou
+      DUO
       <br />
-    </div>
-  );
-};
-
-export default Dou;
-
-/* {this.props.lifetime.attributes.gameModeStats['solo-fpp'].wins} */
-{
-  /* <p>Player: {props.data[props.index].name}</p>
+      <p>Player: {props.data[props.index].name}</p>
       <p>
         KD:{' '}
         {(
           props.data[props.index].currentSeason.data.attributes.gameModeStats[
-            'dou-fpp'
+            'duo-fpp'
           ].kills /
           props.data[props.index].currentSeason.data.attributes.gameModeStats[
-            'dou-fpp'
+            'duo-fpp'
           ].losses
         ).toFixed(2)}
       </p>
@@ -31,7 +23,7 @@ export default Dou;
         Wins:{' '}
         {
           props.data[props.index].currentSeason.data.attributes.gameModeStats[
-            'dou-fpp'
+            'duo-fpp'
           ].wins
         }
       </p>
@@ -39,7 +31,7 @@ export default Dou;
         Kills:{' '}
         {
           props.data[props.index].currentSeason.data.attributes.gameModeStats[
-            'dou-fpp'
+            'duo-fpp'
           ].kills
         }
       </p>
@@ -47,7 +39,7 @@ export default Dou;
         top10s:{' '}
         {
           props.data[props.index].currentSeason.data.attributes.gameModeStats[
-            'dou-fpp'
+            'duo-fpp'
           ].top10s
         }
       </p>
@@ -55,8 +47,12 @@ export default Dou;
         Rank:{' '}
         {
           props.data[props.index].currentSeason.data.attributes.gameModeStats[
-            'dou-fpp'
+            'duo-fpp'
           ].rankPoints
         }
-      </p> */
-}
+      </p>
+    </div>
+  );
+};
+
+export default Dou;
