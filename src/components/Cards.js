@@ -64,17 +64,20 @@ class SimpleCard extends Component {
     switch (gameType) {
       case 'solo':
         currentGameType = (
-          <Solo data={this.state.player} index={this.state.index} />
+          <Solo data={this.props.player} index={this.state.index} />
         );
+
         break;
       case 'dou':
-        currentGameType = <Dou />;
+        currentGameType = (
+          <Dou data={this.props.player} index={this.state.index} />
+        );
         break;
       case 'squad':
         currentGameType = <Squad />;
         break;
       default:
-        currentGameType = 'DEFAULT GAME!';
+        currentGameType = null;
     }
 
     return (
