@@ -20,13 +20,16 @@ import Solo from './miniComponents/solo';
 import Dou from './miniComponents/dou';
 import Squad from './miniComponents/squad';
 
+import CurrentGameType from './currentGameType';
+
 class SimpleCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       clear: false,
       gameType: null,
-      index: null
+      index: null,
+      content: []
     };
 
     this.handleHoverOn = this.handleHoverOn.bind(this);
@@ -37,8 +40,14 @@ class SimpleCard extends Component {
   handleGameType(x, i) {
     console.log(x);
     console.log(i);
+    const newContent = new Object();
+    newContent.index = i;
+    newContent.gameType = x;
     this.setState({ gameType: x });
     this.setState({ index: i });
+    this.setState({ content: this.state.content.concat(newContent) });
+
+    // Make magic here to alter the array of content
   }
 
   handleHoverOn() {
@@ -66,6 +75,7 @@ class SimpleCard extends Component {
         currentGameType = (
           <Solo data={this.props.player} index={this.state.index} />
         );
+
         break;
       case 'dou':
         currentGameType = (
@@ -101,9 +111,7 @@ class SimpleCard extends Component {
                         />
                       </Grid>
                     </Grid>
-
                     <hr />
-
                     <Grid container spacing={1} className='gameTypeContainer'>
                       <Grid
                         value='solo'
@@ -131,32 +139,12 @@ class SimpleCard extends Component {
                         SQUAD
                       </Grid>
                     </Grid>
+                    {this.state.index == i ? (
+                      <CurrentGameType display={this.state.index} />
+                    ) : null}
+
                     {currentGameType}
-                    {/* <p>
-                      <strong>Solo - FPP</strong>
-                    </p>
-                    <p>
-                      Wins:
-                      {item.lifetime.attributes.gameModeStats['solo-fpp'].wins}
-                    </p>
-                    <p>
-                      Kills:
-                      {item.lifetime.attributes.gameModeStats['solo-fpp'].kills}
-                    </p>
-                    <p>
-                      Headshot kills:
-                      {
-                        item.lifetime.attributes.gameModeStats['solo-fpp']
-                          .headshotKills
-                      }
-                    </p>
-                    <p>
-                      Longest Kill:
-                      {item.lifetime.attributes.gameModeStats[
-                        'solo-fpp'
-                      ].longestKill.toFixed(1)}
-                      m
-                    </p> */}
+
                     <div className='fabDiv'>
                       <Fab
                         color='primary'

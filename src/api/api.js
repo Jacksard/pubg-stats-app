@@ -5,13 +5,13 @@ import './api.css';
 import { callPlayer } from './axioscall';
 import { url } from './actions';
 
-
 class api extends Component {
   constructor(props) {
     super(props);
     this.state = {
       playerName: '',
       playersArray: [],
+
       loading: false,
       error: {
         isError: false,
@@ -25,10 +25,9 @@ class api extends Component {
   }
 
   handleChange(event) {
-    this.setState({ msg: '', isError: false })
+    this.setState({ msg: '', isError: false });
     this.setState({ playerName: event.target.value });
   }
-
 
   handlePlayerDelete(id) {
     this.setState({ loading: true });
@@ -37,18 +36,17 @@ class api extends Component {
     joined.splice(id, 1);
     this.setState({ playersArray: joined });
     this.setState({ loading: false });
-
   }
 
-
   async handlePlayerSubmit(event) {
-    this.setState({ loading: true })
+    this.setState({ loading: true });
     event.preventDefault();
     console.log('URL API:  ' + url.player + this.state.playerName);
 
-
     // check if player name exists in players array before callPlayer, to avoid redundant API call
-    let userExist = this.state.playersArray.find(item => item.name === this.state.playerName)
+    let userExist = this.state.playersArray.find(
+      item => item.name === this.state.playerName
+    );
     if (userExist === undefined) {
       await callPlayer(this.state.playerName)
         .then(res => {
@@ -56,14 +54,14 @@ class api extends Component {
           if (res === undefined) {
             this.setState({ isError: true });
             this.setState({ msg: 'Player not found!' });
-            this.setState({ loading: false })
+            this.setState({ loading: false });
           } else {
             var joined = this.state.playersArray.concat(res);
             this.setState({
               playersArray: joined
             });
-            this.setState({ loading: false })
-            this.setState({ playerName: '' })
+            this.setState({ loading: false });
+            this.setState({ playerName: '' });
             console.log(this.state.playersArray);
           }
         })
@@ -73,9 +71,8 @@ class api extends Component {
     } else {
       console.log('User added');
       this.setState({ loading: false });
-      return null
+      return null;
     }
-
   }
   render() {
     return (
@@ -95,12 +92,14 @@ class api extends Component {
         </form>
         <ul>
           <Cards
+            content={['solo']}
             player={this.state.playersArray}
             delete={this.handlePlayerDelete}
             isLoading={this.state.loading}
           />
         </ul>
-      </div >
+        test
+      </div>
     );
   }
 }
