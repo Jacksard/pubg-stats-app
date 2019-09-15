@@ -20,7 +20,7 @@ import Solo from './miniComponents/solo';
 import Dou from './miniComponents/dou';
 import Squad from './miniComponents/squad';
 
-import CurrentGameType from './currentGameType';
+import CurrentGameType from './CurrentGameType';
 
 class SimpleCard extends Component {
   constructor(props) {
@@ -37,13 +37,13 @@ class SimpleCard extends Component {
     this.handleGameType = this.handleGameType.bind(this);
   }
 
-  handleGameType(x, i) {
-    console.log(x);
+  handleGameType(type, i) {
+    console.log(type);
     console.log(i);
     const newContent = new Object();
     newContent.index = i;
-    newContent.gameType = x;
-    this.setState({ gameType: x });
+    newContent.gameType = type;
+    this.setState({ gameType: type });
     this.setState({ index: i });
     this.setState({ content: this.state.content.concat(newContent) });
 
@@ -64,9 +64,6 @@ class SimpleCard extends Component {
   }
 
   render() {
-    function test(i, g) {}
-
-    console.log(this.state.gameType);
     const gameType = this.state.gameType;
 
     let currentGameType;
@@ -139,11 +136,7 @@ class SimpleCard extends Component {
                         SQUAD
                       </Grid>
                     </Grid>
-                    {this.state.index == i ? (
-                      <CurrentGameType display={this.state.index} />
-                    ) : null}
-
-                    {currentGameType}
+                    <CurrentGameType index={i} gameType={gameType} />
 
                     <div className='fabDiv'>
                       <Fab

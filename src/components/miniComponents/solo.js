@@ -1,14 +1,20 @@
 import React from 'react';
 
 const Solo = props => {
-  console.log(props.data[props.index]);
+  //console.log(props.data[props.index]);
   console.log('index:' + props.index);
   return (
     <div>
       SOLO
       <br />
-      <p>Player: {props.data[props.index].name}</p>
-      <p>
+      <p>Player:</p>
+    </div>
+  );
+};
+
+export default Solo;
+{
+  /* <p>
         KD:{' '}
         {(
           props.data[props.index].currentSeason.data.attributes.gameModeStats[
@@ -50,9 +56,5 @@ const Solo = props => {
             'solo-fpp'
           ].rankPoints
         }
-      </p>
-    </div>
-  );
-};
-
-export default Solo;
+      </p> */
+}

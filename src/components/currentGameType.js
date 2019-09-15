@@ -1,9 +1,10 @@
 import React from 'react';
+import Solo from './miniComponents/solo';
 
 const currentGameType = props => {
   return (
     <div>
-      <h3>test current gametype: {props.display}</h3>
+      <p>test current index: {props.index}</p>
     </div>
   );
 };

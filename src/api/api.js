@@ -4,6 +4,7 @@ import Cards from '../components/Cards';
 import './api.css';
 import { callPlayer } from './axioscall';
 import { url } from './actions';
+import { thisTypeAnnotation } from '@babel/types';
 
 class api extends Component {
   constructor(props) {
@@ -22,6 +23,13 @@ class api extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handlePlayerSubmit = this.handlePlayerSubmit.bind(this);
     this.handlePlayerDelete = this.handlePlayerDelete.bind(this);
+    this.handleNameButtons = this.handleNameButtons.bind(this);
+  }
+
+  handleNameButtons(name, e) {
+    console.log(name);
+    this.setState({ playerName: name });
+    this.handlePlayerSubmit(e);
   }
 
   handleChange(event) {
@@ -87,6 +95,21 @@ class api extends Component {
             />
           </label>
           <input type='submit' value='Submit' />
+          <br />
+
+          {/* players buttons */}
+          <button onClick={this.handleChange} value='J4cksard'>
+            J4cksard
+          </button>
+          <button onClick={this.handleChange} value='Twisted_OO'>
+            Twisted_OO
+          </button>
+          <button onClick={this.handleChange} value='chocoTaco'>
+            chocoTaco
+          </button>
+          <button onClick={this.handleChange} value='chikenkk'>
+            chikenkk
+          </button>
 
           {this.state.isError === true ? <h4>{this.state.msg}</h4> : null}
         </form>
@@ -98,7 +121,6 @@ class api extends Component {
             isLoading={this.state.loading}
           />
         </ul>
-        test
       </div>
     );
   }
