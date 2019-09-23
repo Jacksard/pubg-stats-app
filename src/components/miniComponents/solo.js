@@ -9,7 +9,6 @@ const Solo = props => {
   );
   return (
     <div>
-      <p>SOLO</p>
       <p>
         KD:{' '}
         {(

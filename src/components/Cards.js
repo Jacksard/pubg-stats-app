@@ -63,28 +63,6 @@ class SimpleCard extends Component {
   render() {
     const gameType = this.state.gameType;
 
-    let currentGameType;
-    switch (gameType) {
-      case 'solo':
-        currentGameType = (
-          <Solo data={this.props.player} index={this.state.index} />
-        );
-
-        break;
-      case 'duo':
-        currentGameType = (
-          <Duo data={this.props.player} index={this.state.index} />
-        );
-        break;
-      case 'squad':
-        currentGameType = (
-          <Squad data={this.props.player} index={this.state.index} />
-        );
-        break;
-      default:
-        currentGameType = null;
-    }
-
     let current;
 
     return (
@@ -115,7 +93,15 @@ class SimpleCard extends Component {
                         className='gameType'
                         onClick={this.handleGameType.bind(this, 'solo', i)}
                       >
-                        <div className='styleTab'>SOLO</div>
+                        <div
+                          className={
+                            this.props.content[i] === 'solo'
+                              ? 'selectedTab'
+                              : 'styleTab'
+                          }
+                        >
+                          SOLO
+                        </div>
                       </Grid>
                       <Grid
                         item
@@ -123,7 +109,15 @@ class SimpleCard extends Component {
                         className='gameType'
                         onClick={this.handleGameType.bind(this, 'duo', i)}
                       >
-                        <div className='styleTab'>DUO</div>
+                        <div
+                          className={
+                            this.props.content[i] === 'duo'
+                              ? 'selectedTab'
+                              : 'styleTab'
+                          }
+                        >
+                          DUO
+                        </div>
                       </Grid>
                       <Grid
                         item
@@ -131,7 +125,15 @@ class SimpleCard extends Component {
                         className='gameType'
                         onClick={this.handleGameType.bind(this, 'squad', i)}
                       >
-                        <div className='styleTab'>SQUAD</div>
+                        <div
+                          className={
+                            this.props.content[i] === 'squad'
+                              ? 'selectedTab'
+                              : 'styleTab'
+                          }
+                        >
+                          SQUAD
+                        </div>
                       </Grid>
                     </Grid>
                     <CurrentGameType
@@ -140,7 +142,7 @@ class SimpleCard extends Component {
                       data={this.props.player}
                     />
                     {/*  <CurrentGameType index={i} gameType={gameType} /> */}
-                    {/* <div className='fabDiv'>
+                    <div className='fabDiv'>
                       <Fab
                         color='primary'
                         aria-label='add'
@@ -149,8 +151,7 @@ class SimpleCard extends Component {
                       >
                         <AddIcon className='addIcon' />
                       </Fab>
-                    </div> */}
-                    <h1>{this.props.content[i]}</h1>
+                    </div>
                   </Card>
                 </li>
               );

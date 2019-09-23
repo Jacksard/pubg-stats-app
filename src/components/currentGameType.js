@@ -13,9 +13,9 @@ class currentGameType extends Component {
       case 'solo':
         return <Solo data={this.props.data} index={this.props.index} />;
       case 'duo':
-        return <Duo />;
+        return <Duo data={this.props.data} index={this.props.index} />;
       case 'squad':
-        return <Squad />;
+        return <Squad data={this.props.data} index={this.props.index} />;
     }
   }
 
