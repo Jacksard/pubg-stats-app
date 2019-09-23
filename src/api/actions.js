@@ -1,9 +1,9 @@
 export const urlSeasons = 'https://api.pubg.com/shards/steam/seasons';
 
 export const url = {
-  player: 'http://localhost:5000/api/pubg/player/',
+  player: 'http://192.168.2.25:5000/api/pubg/player/',
   match: 'http://api.pubg.com/shards/steam/matches/',
-  lifetime: 'http://localhost:5000/api/pubg/lifetime/'
+  lifetime: 'http://192.168.2.25:5000/api/pubg/lifetime/'
 };
 export const Jacob = 'J4cksard';
 export const Danny = 'Twisted_OO';

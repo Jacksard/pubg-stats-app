@@ -49,7 +49,7 @@ class api extends Component {
     newView.splice(id, 1);
     this.setState({ playersView: newView });
 
-    const newContent = [...this.state.playerGameType];
+    const newContent = this.state.playerGameType;
     newContent.splice(id, 1);
     this.setState({ playerGameType: newContent });
 
@@ -147,8 +147,8 @@ class api extends Component {
           <button onClick={this.handleChange} value='chikenkk'>
             chikenkk
           </button>
-          <button onClick={this.handleChange} value='I_Am_Swagger'>
-            I_Am_Swagger
+          <button onClick={this.handleChange} value='The87Beast'>
+            The87Beast
           </button>
 
           {this.state.isError === true ? <h4>{this.state.msg}</h4> : null}
