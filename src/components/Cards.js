@@ -1,50 +1,43 @@
 import React, { Component } from 'react';
-
 import Card from '@material-ui/core/Card';
-
 import shortid from 'shortid';
-
 import Grid from '@material-ui/core/Grid';
-
 import Clear from '@material-ui/icons/Clear';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-
 import Loader from 'react-loader-spinner';
-
-import { Container } from '@material-ui/core';
-
 import './Cards.css';
-
-import Solo from './miniComponents/solo';
-import Duo from './miniComponents/duo';
-import Squad from './miniComponents/squad';
-
 import CurrentGameType from './CurrentGameType';
 
 class SimpleCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clear: false,
-      gameType: null,
-      index: null,
-      showtype: []
+      clear: false
     };
 
     this.handleHoverOn = this.handleHoverOn.bind(this);
     this.handleHoverOff = this.handleHoverOff.bind(this);
+    this.handleViewType = this.handleViewType.bind(this);
     this.handleGameType = this.handleGameType.bind(this);
+  }
+
+  handleViewType(type, i) {
+    console.log(type);
+    console.log(i);
+
+    if (this.props.view[i] !== type) {
+      this.props.changeView(type, i);
+    }
   }
 
   handleGameType(type, i) {
     console.log(type);
     console.log(i);
-    this.props.changeContent(type, i);
-    this.setState({ gameType: type });
-    this.setState({ index: i });
 
-    // Make magic here to alter the array of content
+    if (this.props.content[i] !== type) {
+      this.props.changeContent(type, i);
+    }
   }
 
   handleHoverOn() {
@@ -61,10 +54,6 @@ class SimpleCard extends Component {
   }
 
   render() {
-    const gameType = this.state.gameType;
-
-    let current;
-
     return (
       <React.Fragment>
         <Grid container direction='row' justify='center' alignItems='center'>
@@ -79,13 +68,50 @@ class SimpleCard extends Component {
 
                         <Clear
                           onClick={this.props.delete.bind(this, i)}
-                          onMouseEnter={this.handleHoverOn}
-                          onMouseLeave={this.handleHoverOff}
+                          onMouseEnter={() => this.handleHoverOn}
+                          onMouseLeave={() => this.handleHoverOff}
                           className='removeCard'
                         />
                       </Grid>
                     </Grid>
                     <hr />
+                    {/* ------ View Mode menu ------ */}
+                    <Grid container spacing={1} className='gameTypeContainer'>
+                      <Grid
+                        item
+                        xs={6}
+                        className='gameType'
+                        onClick={this.handleViewType.bind(this, 'fpp', i)}
+                      >
+                        <div
+                          className={
+                            this.props.view[i] === 'fpp'
+                              ? 'selectedTab'
+                              : 'styleTab'
+                          }
+                        >
+                          FPP
+                        </div>
+                      </Grid>
+                      <Grid
+                        item
+                        xs={6}
+                        className='gameType'
+                        onClick={this.handleViewType.bind(this, 'tpp', i)}
+                      >
+                        <div
+                          className={
+                            this.props.view[i] === 'tpp'
+                              ? 'selectedTab'
+                              : 'styleTab'
+                          }
+                        >
+                          TPP
+                        </div>
+                      </Grid>
+                    </Grid>
+
+                    {/* ------ Game Type menu ------ */}
                     <Grid container spacing={1} className='gameTypeContainer'>
                       <Grid
                         item
@@ -141,7 +167,7 @@ class SimpleCard extends Component {
                       index={i}
                       data={this.props.player}
                     />
-                    {/*  <CurrentGameType index={i} gameType={gameType} /> */}
+
                     <div className='fabDiv'>
                       <Fab
                         color='primary'

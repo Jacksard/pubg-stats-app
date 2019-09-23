@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-
 import Cards from '../components/Cards';
 import './api.css';
 import { callPlayer } from './axioscall';
 import { url } from './actions';
-import { thisTypeAnnotation } from '@babel/types';
 
 class api extends Component {
   constructor(props) {
@@ -12,8 +10,8 @@ class api extends Component {
     this.state = {
       playerName: '',
       playersArray: [],
+      playersView: [],
       playerGameType: [],
-
       loading: false,
       error: {
         isError: false,
@@ -25,6 +23,7 @@ class api extends Component {
     this.handlePlayerSubmit = this.handlePlayerSubmit.bind(this);
     this.handlePlayerDelete = this.handlePlayerDelete.bind(this);
     this.handleNameButtons = this.handleNameButtons.bind(this);
+    this.handleChangeView = this.handleChangeView.bind(this);
     this.handleChangeContent = this.handleChangeContent.bind(this);
   }
 
@@ -48,21 +47,23 @@ class api extends Component {
     this.setState({ loading: false });
   }
 
+  handleChangeView(type, i) {
+    console.log(type);
+    console.log(i);
+    let newView = this.state.playersView;
+
+    newView[i] = type;
+    this.setState({ playersView: newView });
+    console.log(this.state.newView);
+  }
+
   handleChangeContent(type, i) {
     console.log(type);
     console.log(i);
-    var newContent = this.state.playerGameType;
+    let newContent = this.state.playerGameType;
     newContent[i] = type;
     this.setState({ playerGameType: newContent });
     console.log(this.state.playerGameType);
-
-    /* var index = newContent.indexOf(type);
-    console.log(index);
-    if (index !== -1) {
-      newContent[i] = type;
-      this.setState({ playerGameType: newContent });
-      console.log(this.state.playerGameType);
-    } */
   }
 
   async handlePlayerSubmit(event) {
@@ -89,6 +90,9 @@ class api extends Component {
             });
             this.setState({
               playerGameType: this.state.playerGameType.concat('solo')
+            });
+            this.setState({
+              playersView: this.state.playersView.concat('fpp')
             });
             this.setState({ loading: false });
             this.setState({ playerName: '' });
@@ -133,13 +137,18 @@ class api extends Component {
           <button onClick={this.handleChange} value='chikenkk'>
             chikenkk
           </button>
+          <button onClick={this.handleChange} value='I_Am_Swagger'>
+            I_Am_Swagger
+          </button>
 
           {this.state.isError === true ? <h4>{this.state.msg}</h4> : null}
         </form>
         <ul>
           <Cards
+            view={this.state.playersView}
             content={this.state.playerGameType}
             changeContent={this.handleChangeContent}
+            changeView={this.handleChangeView}
             player={this.state.playersArray}
             delete={this.handlePlayerDelete}
             isLoading={this.state.loading}

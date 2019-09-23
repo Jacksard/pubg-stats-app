@@ -6,6 +6,7 @@ import Squad from './miniComponents/squad';
 class currentGameType extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
 
   handleGameType(type) {

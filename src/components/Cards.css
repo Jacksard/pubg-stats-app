@@ -7,7 +7,18 @@
   background-color: rgb(41, 41, 41) !important;
   color: white !important;
   overflow: hidden;
+  /* animation: heading;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards; */
 }
+/* @keyframes heading {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} */
 
 .header {
   background-color: lightBlue;
