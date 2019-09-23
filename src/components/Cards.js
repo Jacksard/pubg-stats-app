@@ -17,7 +17,7 @@ import { Container } from '@material-ui/core';
 import './Cards.css';
 
 import Solo from './miniComponents/solo';
-import Dou from './miniComponents/dou';
+import Duo from './miniComponents/duo';
 import Squad from './miniComponents/squad';
 
 import CurrentGameType from './CurrentGameType';
@@ -71,9 +71,9 @@ class SimpleCard extends Component {
         );
 
         break;
-      case 'dou':
+      case 'duo':
         currentGameType = (
-          <Dou data={this.props.player} index={this.state.index} />
+          <Duo data={this.props.player} index={this.state.index} />
         );
         break;
       case 'squad':
@@ -84,6 +84,8 @@ class SimpleCard extends Component {
       default:
         currentGameType = null;
     }
+
+    let current;
 
     return (
       <React.Fragment>
@@ -119,9 +121,9 @@ class SimpleCard extends Component {
                         item
                         xs={4}
                         className='gameType'
-                        onClick={this.handleGameType.bind(this, 'dou', i)}
+                        onClick={this.handleGameType.bind(this, 'duo', i)}
                       >
-                        <div className='styleTab'>DOU</div>
+                        <div className='styleTab'>DUO</div>
                       </Grid>
                       <Grid
                         item
@@ -132,7 +134,10 @@ class SimpleCard extends Component {
                         <div className='styleTab'>SQUAD</div>
                       </Grid>
                     </Grid>
-
+                    <CurrentGameType
+                      content={this.props.content[i]}
+                      index={i}
+                    />
                     {/*  <CurrentGameType index={i} gameType={gameType} /> */}
                     {/* <div className='fabDiv'>
                       <Fab

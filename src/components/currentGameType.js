@@ -1,19 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Solo from './miniComponents/solo';
-import Dou from './miniComponents/dou';
+import Duo from './miniComponents/duo';
 import Squad from './miniComponents/squad';
 
-const currentGameType = props => {
-  return (
-    <div>
-      <p>
-        test current index: {props.index} and content: {props.content}
-      </p>
-      <Solo index={props.index} content={props.content} />
-      <Dou index={props.index} content={props.content} />
-      <Squad index={props.index} content={props.content} />
-    </div>
-  );
-};
+class currentGameType extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleGameType(type) {
+    switch (type) {
+      case 'solo':
+        return <Solo />;
+      case 'duo':
+        return <Duo />;
+      case 'squad':
+        return <Squad />;
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        this: {this.props.content} {this.props.index}
+        {this.handleGameType(this.props.content)}
+      </div>
+    );
+  }
+}
 
 export default currentGameType;
+
+/* return (
+  <div>
+    <p>
+      test current index: {props.index} and content: {props.content}
+    </p>
+
+    <Solo index={props.index} />
+    <Dou index={props.index} />
+    <Squad index={props.index} />
+  </div>
+);
+}
+} */

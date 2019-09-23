@@ -1,14 +1,12 @@
 import React from 'react';
 
-const Dou = props => {
+const Duo = props => {
   console.log('index:' + props.index);
   return (
     <div>
-      DUO
-      <br />
-      <p>Player:</p>
+      <p>DUO</p>
     </div>
   );
 };
 
-export default Dou;
+export default Duo;
