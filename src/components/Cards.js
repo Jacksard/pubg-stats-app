@@ -29,7 +29,7 @@ class SimpleCard extends Component {
       clear: false,
       gameType: null,
       index: null,
-      content: []
+      showtype: []
     };
 
     this.handleHoverOn = this.handleHoverOn.bind(this);
@@ -40,12 +40,9 @@ class SimpleCard extends Component {
   handleGameType(type, i) {
     console.log(type);
     console.log(i);
-    const newContent = new Object();
-    newContent.index = i;
-    newContent.gameType = type;
+    this.props.changeContent(type, i);
     this.setState({ gameType: type });
     this.setState({ index: i });
-    this.setState({ content: this.state.content.concat(newContent) });
 
     // Make magic here to alter the array of content
   }
@@ -111,13 +108,12 @@ class SimpleCard extends Component {
                     <hr />
                     <Grid container spacing={1} className='gameTypeContainer'>
                       <Grid
-                        value='solo'
                         item
                         xs={4}
                         className='gameType'
                         onClick={this.handleGameType.bind(this, 'solo', i)}
                       >
-                        SOLO
+                        <div className='styleTab'>SOLO</div>
                       </Grid>
                       <Grid
                         item
@@ -125,7 +121,7 @@ class SimpleCard extends Component {
                         className='gameType'
                         onClick={this.handleGameType.bind(this, 'dou', i)}
                       >
-                        DOU
+                        <div className='styleTab'>DOU</div>
                       </Grid>
                       <Grid
                         item
@@ -133,12 +129,12 @@ class SimpleCard extends Component {
                         className='gameType'
                         onClick={this.handleGameType.bind(this, 'squad', i)}
                       >
-                        SQUAD
+                        <div className='styleTab'>SQUAD</div>
                       </Grid>
                     </Grid>
-                    <CurrentGameType index={i} gameType={gameType} />
 
-                    <div className='fabDiv'>
+                    {/*  <CurrentGameType index={i} gameType={gameType} /> */}
+                    {/* <div className='fabDiv'>
                       <Fab
                         color='primary'
                         aria-label='add'
@@ -147,7 +143,8 @@ class SimpleCard extends Component {
                       >
                         <AddIcon className='addIcon' />
                       </Fab>
-                    </div>
+                    </div> */}
+                    <h1>{this.props.content[i]}</h1>
                   </Card>
                 </li>
               );

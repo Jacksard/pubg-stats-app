@@ -12,6 +12,7 @@ class api extends Component {
     this.state = {
       playerName: '',
       playersArray: [],
+      playerGameType: [],
 
       loading: false,
       error: {
@@ -24,6 +25,7 @@ class api extends Component {
     this.handlePlayerSubmit = this.handlePlayerSubmit.bind(this);
     this.handlePlayerDelete = this.handlePlayerDelete.bind(this);
     this.handleNameButtons = this.handleNameButtons.bind(this);
+    this.handleChangeContent = this.handleChangeContent.bind(this);
   }
 
   handleNameButtons(name, e) {
@@ -44,6 +46,23 @@ class api extends Component {
     joined.splice(id, 1);
     this.setState({ playersArray: joined });
     this.setState({ loading: false });
+  }
+
+  handleChangeContent(type, i) {
+    console.log(type);
+    console.log(i);
+    var newContent = this.state.playerGameType;
+    newContent[i] = type;
+    this.setState({ playerGameType: newContent });
+    console.log(this.state.playerGameType);
+
+    /* var index = newContent.indexOf(type);
+    console.log(index);
+    if (index !== -1) {
+      newContent[i] = type;
+      this.setState({ playerGameType: newContent });
+      console.log(this.state.playerGameType);
+    } */
   }
 
   async handlePlayerSubmit(event) {
@@ -68,9 +87,13 @@ class api extends Component {
             this.setState({
               playersArray: joined
             });
+            this.setState({
+              playerGameType: this.state.playerGameType.concat('solo')
+            });
             this.setState({ loading: false });
             this.setState({ playerName: '' });
             console.log(this.state.playersArray);
+            console.log(this.state.playerGameType);
           }
         })
         .catch(error => {
@@ -115,7 +138,8 @@ class api extends Component {
         </form>
         <ul>
           <Cards
-            content={['solo']}
+            content={this.state.playerGameType}
+            changeContent={this.handleChangeContent}
             player={this.state.playersArray}
             delete={this.handlePlayerDelete}
             isLoading={this.state.loading}

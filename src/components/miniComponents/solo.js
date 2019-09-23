@@ -3,11 +3,11 @@ import React from 'react';
 const Solo = props => {
   //console.log(props.data[props.index]);
   console.log('index:' + props.index);
+  console.log('content:' + props.content);
   return (
     <div>
-      SOLO
+      SOLO {props.index}
       <br />
-      <p>Player:</p>
     </div>
   );
 };
