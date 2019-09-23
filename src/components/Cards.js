@@ -137,6 +137,7 @@ class SimpleCard extends Component {
                     <CurrentGameType
                       content={this.props.content[i]}
                       index={i}
+                      data={this.props.player}
                     />
                     {/*  <CurrentGameType index={i} gameType={gameType} /> */}
                     {/* <div className='fabDiv'>
