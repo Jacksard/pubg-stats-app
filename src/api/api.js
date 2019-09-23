@@ -44,6 +44,16 @@ class api extends Component {
     const joined = [...this.state.playersArray];
     joined.splice(id, 1);
     this.setState({ playersArray: joined });
+
+    const newView = [...this.state.playersView];
+    newView.splice(id, 1);
+    this.setState({ playersView: newView });
+
+    const newContent = [...this.state.playerGameType];
+    newContent.splice(id, 1);
+    this.setState({ playerGameType: newContent });
+
+    console.log(this.state.playersView);
     this.setState({ loading: false });
   }
 
@@ -54,7 +64,7 @@ class api extends Component {
 
     newView[i] = type;
     this.setState({ playersView: newView });
-    console.log(this.state.newView);
+    console.log(this.state.playersView);
   }
 
   handleChangeContent(type, i) {

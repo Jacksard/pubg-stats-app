@@ -12,16 +12,33 @@ class currentGameType extends Component {
   handleGameType(type) {
     switch (type) {
       case 'solo':
-        return <Solo data={this.props.data} index={this.props.index} />;
+        return (
+          <Solo
+            data={this.props.data}
+            index={this.props.index}
+            view={this.props.view}
+          />
+        );
       case 'duo':
-        return <Duo data={this.props.data} index={this.props.index} />;
+        return (
+          <Duo
+            data={this.props.data}
+            index={this.props.index}
+            view={this.props.view}
+          />
+        );
       case 'squad':
-        return <Squad data={this.props.data} index={this.props.index} />;
+        return (
+          <Squad
+            data={this.props.data}
+            index={this.props.index}
+            view={this.props.view}
+          />
+        );
     }
   }
 
   render() {
-    console.log(this.props.data);
     return <div>{this.handleGameType(this.props.content)}</div>;
   }
 }

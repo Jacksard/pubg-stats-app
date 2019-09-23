@@ -163,6 +163,7 @@ class SimpleCard extends Component {
                       </Grid>
                     </Grid>
                     <CurrentGameType
+                      view={this.props.view}
                       content={this.props.content[i]}
                       index={i}
                       data={this.props.player}
