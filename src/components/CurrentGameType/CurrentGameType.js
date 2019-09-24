@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Solo from './miniComponents/solo';
-import Duo from './miniComponents/duo';
-import Squad from './miniComponents/squad';
+import Solo from '../GameType/solo';
+import Duo from '../GameType/duo';
+import Squad from '../GameType/squad';
 
 class currentGameType extends Component {
   constructor(props) {

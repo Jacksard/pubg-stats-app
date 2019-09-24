@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Cards from '../components/Cards';
-import './api.css';
-import { callPlayer } from './axioscall';
-import { url } from './actions';
+import Cards from '../Cards/Cards';
+import './Main.css';
+import { callPlayer } from '../../api/axioscall';
+import { url } from '../../api/actions';
 
 class api extends Component {
   constructor(props) {
@@ -41,14 +41,16 @@ class api extends Component {
   handlePlayerDelete(id) {
     this.setState({ loading: true });
     console.log(id);
+
+    // splice player from playersArray
     const joined = [...this.state.playersArray];
     joined.splice(id, 1);
     this.setState({ playersArray: joined });
-
+    // splice player View from playersView arary
     const newView = [...this.state.playersView];
     newView.splice(id, 1);
     this.setState({ playersView: newView });
-
+    // splice player View from playerGameType array 
     const newContent = this.state.playerGameType;
     newContent.splice(id, 1);
     this.setState({ playerGameType: newContent });
@@ -141,8 +143,8 @@ class api extends Component {
           <button onClick={this.handleChange} value='Twisted_OO'>
             Twisted_OO
           </button>
-          <button onClick={this.handleChange} value='chocoTaco'>
-            chocoTaco
+          <button onClick={this.handleChange} value='Valhalla_-'>
+          Valhalla_-
           </button>
           <button onClick={this.handleChange} value='chikenkk'>
             chikenkk

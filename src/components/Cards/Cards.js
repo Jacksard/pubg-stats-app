@@ -7,7 +7,7 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Loader from 'react-loader-spinner';
 import './Cards.css';
-import CurrentGameType from './CurrentGameType';
+import CurrentGameType from '../CurrentGameType/CurrentGameType';
 
 class SimpleCard extends Component {
   constructor(props) {

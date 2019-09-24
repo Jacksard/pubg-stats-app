@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import API from './api/api';
+import Main from './Components/Main/Main';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -33,7 +33,7 @@ function App() {
           </Grid>
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <API />
+              <Main />
             </Paper>
           </Grid>
           <Grid item xs={12}>
