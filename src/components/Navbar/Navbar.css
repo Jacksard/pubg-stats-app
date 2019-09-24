@@ -3,12 +3,13 @@
 }
 
 .navbar {
-   margin: 10px !important;
+   
+   margin: 0px !important;
    height: 60px;
    color: #fff;
    text-align: center;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 30px;
+   font-size: 30px;
  }
 
  h2 {
