@@ -123,7 +123,7 @@ class api extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="mainContainer">
         <form onSubmit={this.handlePlayerSubmit}>
           <label>
             Name:

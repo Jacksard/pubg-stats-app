@@ -1,3 +1,9 @@
+.mainContainer {
+  text-align: center;
+  height: 800px !important;
+  
+}
+
 ul {
   list-style-type: none;
 }
@@ -5,3 +11,4 @@ ul {
 li {
   padding: 5px;
 }
+

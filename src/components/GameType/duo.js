@@ -54,7 +54,7 @@ const Duo = props => {
 
   return (
     <div>
-      {props.view[props.index] == 'fpp' ? (
+      {props.view[props.index] === 'fpp' ? (
         stats_kd_fpp === 'NaN' ? (
           <div className='noData'>
             <br />

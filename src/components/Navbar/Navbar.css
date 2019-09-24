@@ -1,0 +1,14 @@
+:root {
+    --mycolor: rgb(0, 136, 255);
+}
+
+.navbar {
+   margin: 0 !important;
+   height: 40px;
+   color: #000;
+   text-align: center;
+ }
+
+ h2 {
+     margin: 0;
+ }

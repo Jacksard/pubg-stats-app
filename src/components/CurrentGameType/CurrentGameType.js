@@ -35,6 +35,8 @@ class currentGameType extends Component {
             view={this.props.view}
           />
         );
+        default: 
+        return null
     }
   }
 

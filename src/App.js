@@ -4,43 +4,23 @@ import Main from './Components/Main/Main';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Navbar from './Components/Navbar/Navbar'
 
 // Init dotenv
 require('dotenv').config();
 
 function App() {
-  const useStyles = makeStyles(theme => ({
-    root: {
-      flexGrow: 1,
-      backgroundColor: '#184336'
-    },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      backgroundColor: 'grey'
-    }
-  }));
-
-  const classes = useStyles();
 
   return (
     <div className='App'>
-      <div className={classes.root}>
-        <Grid container spacing={3}>
+      <div className="overlay"> 
           <Grid item xs={12}>
-            <Paper className={classes.paper}>NavBar</Paper>
+            <Navbar />
           </Grid>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>
+          <Grid item xs={12} >
               <Main />
-            </Paper>
           </Grid>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>Footer</Paper>
-          </Grid>
-        </Grid>
-      </div>
+      </div>   
     </div>
   );
 }
