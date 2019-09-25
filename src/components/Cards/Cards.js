@@ -44,6 +44,13 @@ class SimpleCard extends Component {
   }
 
   render() {
+    const rank = (type, view) => {
+      if (view === 'tpp') {
+        return type;
+      } else {
+        return type + '-' + view;
+      }
+    };
     return (
       <React.Fragment>
         <Grid container direction='row' justify='center' alignItems='center'>
@@ -59,14 +66,14 @@ class SimpleCard extends Component {
                           index={i}
                           item={item}
                           gameType={this.state.gameType}
-                          view={this.state.view}
+                          rank={item.currentSeason.data.attributes.gameModeStats[
+                            rank(this.props.content[i], this.props.view[i])
+                          ].rankPoints.toFixed(0)}
                         />
                         {/*  item.name */}
                         {/* <h4>
                           {' '}
-                          {item.currentSeason.data.attributes.gameModeStats[
-                            rank()
-                          ].rankPoints.toFixed(0)}
+                          
                         </h4> */}
                       </Grid>
                     </Grid>

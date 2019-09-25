@@ -28,17 +28,15 @@ class CardHeader extends Component {
   }
 
   render() {
-    const rank = () => {
+    /* const rank = () => {
       if (this.props.view === null) {
         return this.props.gameType;
       } else {
         return this.props.gameType + '-' + this.props.view;
       }
-    };
+    }; */
 
-    const rankPoints = this.props.item.currentSeason.data.attributes.gameModeStats[
-      rank()
-    ].rankPoints.toFixed(0);
+    const rankPoints = this.props.view;
     return (
       <div>
         <Grid item xs={12} className='headerCard'>
@@ -47,7 +45,7 @@ class CardHeader extends Component {
           </Grid>
           <Grid item xs={7} className='headerCardMiddleSection'>
             <p>{this.props.item.name}</p>
-            <h4>{rankPoints}</h4>
+            <h4>{this.props.rank}</h4>
           </Grid>
           <Grid item xs={1} className='headerCardRightSection'>
             <Clear
