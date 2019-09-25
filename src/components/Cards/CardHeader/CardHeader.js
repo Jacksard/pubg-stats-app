@@ -45,11 +45,11 @@ class CardHeader extends Component {
           <Grid item xs={4} className='headerCardLeftSection'>
             ICON
           </Grid>
-          <Grid item xs={6} className='headerCardMiddleSection'>
-            <h2>{this.props.item.name}</h2>
+          <Grid item xs={7} className='headerCardMiddleSection'>
+            <p>{this.props.item.name}</p>
             <h4>{rankPoints}</h4>
           </Grid>
-          <Grid item xs={2} cclassName='headerCardRightSection'>
+          <Grid item xs={1} className='headerCardRightSection'>
             <Clear
               onClick={this.props.delete.bind(this, this.props.index)}
               onMouseEnter={() => this.handleHoverOn}

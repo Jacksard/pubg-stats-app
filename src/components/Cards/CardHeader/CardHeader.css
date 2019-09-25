@@ -19,15 +19,27 @@
   display: inline-flex;
   margin: 0 !important;
   width: 100%;
+  height: 90px !important;
+}
+/* Left Header*/
+.headerCardLeftSection {
+  background-color: #000;
 }
 
+/* Middle Header*/
 .headerCardMiddleSection {
   padding: 0;
-
   text-align: left;
+  background-color: #000;
 }
 
-.headerCardMiddleSection h2 {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  padding-top: 15px;
+.headerCardMiddleSection p {
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 10px;
+}
+
+/* Right Header */
+.headerCardRightSection {
+  background-color: #000;
 }
