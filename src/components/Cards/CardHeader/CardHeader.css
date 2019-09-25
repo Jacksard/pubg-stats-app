@@ -1,0 +1,33 @@
+.removeCard {
+  cursor: pointer;
+  border-radius: 50%;
+  float: right;
+}
+
+.removeCard:hover {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.2) rotate(90deg);
+  border: 1px solid black;
+  border-radius: 50%;
+  z-index: auto;
+  cursor: pointer;
+  margin: auto;
+  float: right;
+}
+
+.headerCard {
+  display: inline-flex;
+  margin: 0 !important;
+  width: 100%;
+}
+
+.headerCardMiddleSection {
+  padding: 0;
+
+  text-align: left;
+}
+
+.headerCardMiddleSection h2 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding-top: 15px;
+}

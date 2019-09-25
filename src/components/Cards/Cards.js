@@ -8,16 +8,17 @@ import AddIcon from '@material-ui/icons/Add';
 import Loader from 'react-loader-spinner';
 import './Cards.css';
 import CurrentGameType from '../CurrentGameType/CurrentGameType';
+import CardHeader from './CardHeader/CardHeader';
 
 class SimpleCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clear: false
+      clear: false,
+      gameType: 'solo',
+      view: 'fpp'
     };
 
-    this.handleHoverOn = this.handleHoverOn.bind(this);
-    this.handleHoverOff = this.handleHoverOff.bind(this);
     this.handleViewType = this.handleViewType.bind(this);
     this.handleGameType = this.handleGameType.bind(this);
   }
@@ -25,7 +26,9 @@ class SimpleCard extends Component {
   handleViewType(type, i) {
     console.log(type);
     console.log(i);
-
+    if (i === 'tpp') {
+      this.setState({ view: null });
+    }
     if (this.props.view[i] !== type) {
       this.props.changeView(type, i);
     }
@@ -34,23 +37,10 @@ class SimpleCard extends Component {
   handleGameType(type, i) {
     console.log(type);
     console.log(i);
-
+    this.setState({ gameType: type });
     if (this.props.content[i] !== type) {
       this.props.changeContent(type, i);
     }
-  }
-
-  handleHoverOn() {
-    console.log('hover on test');
-    this.setState(prevState => ({
-      clear: !prevState.clear
-    }));
-  }
-  handleHoverOff() {
-    console.log('hover on test off');
-    this.setState(prevState => ({
-      clear: !prevState.clear
-    }));
   }
 
   render() {
@@ -64,14 +54,20 @@ class SimpleCard extends Component {
                   <Card className='card'>
                     <Grid container spacing={0}>
                       <Grid item xs={12} className='headLeft'>
-                        {item.name}
-
-                        <Clear
-                          onClick={this.props.delete.bind(this, i)}
-                          onMouseEnter={() => this.handleHoverOn}
-                          onMouseLeave={() => this.handleHoverOff}
-                          className='removeCard'
+                        <CardHeader
+                          delete={this.props.delete}
+                          index={i}
+                          item={item}
+                          gameType={this.state.gameType}
+                          view={this.state.view}
                         />
+                        {/*  item.name */}
+                        {/* <h4>
+                          {' '}
+                          {item.currentSeason.data.attributes.gameModeStats[
+                            rank()
+                          ].rankPoints.toFixed(0)}
+                        </h4> */}
                       </Grid>
                     </Grid>
                     <hr />
