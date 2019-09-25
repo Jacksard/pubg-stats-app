@@ -79,7 +79,7 @@ class SimpleCard extends Component {
                     </Grid>
                     <hr />
                     {/* ------ View Mode menu ------ */}
-                    <Grid container spacing={1} className='gameTypeContainer'>
+                    <Grid container spacing={2} className='gameTypeContainer'>
                       <Grid
                         item
                         xs={6}
@@ -170,6 +170,7 @@ class SimpleCard extends Component {
                       content={this.props.content[i]}
                       index={i}
                       data={this.props.player}
+                      className='currentGameType'
                     />
 
                     <div className='fabDiv'>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Solo from '../GameType/solo';
 import Duo from '../GameType/duo';
 import Squad from '../GameType/squad';
+import './CurrentGameType.css';
 
 class currentGameType extends Component {
   constructor(props) {
@@ -35,13 +36,17 @@ class currentGameType extends Component {
             view={this.props.view}
           />
         );
-        default: 
-        return null
+      default:
+        return null;
     }
   }
 
   render() {
-    return <div>{this.handleGameType(this.props.content)}</div>;
+    return (
+      <div className='currentGameType'>
+        {this.handleGameType(this.props.content)}
+      </div>
+    );
   }
 }
 

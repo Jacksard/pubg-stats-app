@@ -1,3 +1,11 @@
 .noData {
-  height: 201px;
+  min-height: 300px;
+}
+.currentGameType {
+  min-height: 300px;
+}
+
+.middle {
+  padding-top: 120px;
+  color: rgb(255, 234, 0);
 }

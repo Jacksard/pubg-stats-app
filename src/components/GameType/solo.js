@@ -54,41 +54,33 @@ const Solo = props => {
   ].currentSeason.data.attributes.gameModeStats['solo'].rankPoints.toFixed(0);
 
   return (
-    <div>
+    <React.Fragment>
       {props.view[props.index] === 'fpp' ? (
         stats_kd_fpp === 'NaN' ? (
           <div className='noData'>
-            <br />
-            <br />
-            <br />
-            <p>No Records</p>
+            <p className='middle'>No Records</p>
           </div>
         ) : (
-          <div>
-            <p>KD: {stats_kd_fpp}</p>
-            <p>Wins: {stats_wins_fpp}</p>
-            <p>Kills: {stats_kills_fpp}</p>
-            <p>top10s: {stats_top10s_fpp}</p>
-            <p>Rank: {stats_rank_fpp}</p>
+          <div className='currentGameType'>
+            <p id='stats'>K/D: {stats_kd_fpp}</p>
+            <p id='stats'>Wins: {stats_wins_fpp}</p>
+            <p id='stats'>Kills: {stats_kills_fpp}</p>
+            <p id='stats'>top10s: {stats_top10s_fpp}</p>
           </div>
         )
       ) : stats_kd_tpp === 'NaN' ? (
         <div className='noData'>
-          <br />
-          <br />
-          <br />
-          <p>No Records</p>
+          <p className='middle'>No Records</p>
         </div>
       ) : (
-        <div>
-          <p>KD: {stats_kd_tpp}</p>
+        <div className='currentGameType'>
+          <p>K/D: {stats_kd_tpp}</p>
           <p>Wins: {stats_wins_tpp}</p>
           <p>Kills: {stats_kills_tpp}</p>
           <p>top10s:{stats_top10s_tpp}</p>
-          <p>Rank: {stats_rank_tpp}</p>
         </div>
       )}
-    </div>
+    </React.Fragment>
   );
 };
 export default Solo;

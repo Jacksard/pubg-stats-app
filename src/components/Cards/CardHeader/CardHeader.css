@@ -24,6 +24,7 @@
 /* Left Header*/
 .headerCardLeftSection {
   background-color: #000;
+  color: white;
 }
 
 /* Middle Header*/
@@ -42,4 +43,13 @@
 /* Right Header */
 .headerCardRightSection {
   background-color: #000;
+}
+
+.rankIcon {
+  position: absolute;
+  /*  width: 110px !important;
+  height: 110px !important; */
+  transform: translate(-60px, 10px) !important;
+  opacity: 0.6;
+  z-index: 0 !important;
 }

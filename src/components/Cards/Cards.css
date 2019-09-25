@@ -7,6 +7,7 @@
   background-color: rgb(41, 41, 41) !important;
   color: white !important;
   overflow: hidden;
+
   /* animation: heading;
   animation-duration: 0.5s;
   animation-fill-mode: forwards; */
@@ -34,7 +35,7 @@
   border-radius: 0px;
   margin: 0px;
   height: 90px;
-
+  z-index: 10 !important;
   text-align: center;
 }
 
@@ -77,15 +78,16 @@
 }
 
 .gameTypeContainer {
-  margin: 0 !important;
+  margin: 2px !important;
   width: auto !important;
+  opacity: 1 !important;
 }
 .gameType {
-  padding: 0 !important;
+  padding: 2px !important;
   margin: 0 !important;
   cursor: pointer !important;
   font-family: 'Courier New', Courier, monospace;
-  border: 1px solid rgb(72, 184, 122);
+  z-index: 100 !important;
 }
 .styleTab:hover {
   background-color: rgb(162, 197, 35);
@@ -95,9 +97,14 @@
 
 .selectedTab {
   background-color: rgb(30, 100, 128);
+  border: 1px solid yellow;
 }
 .selectedTab:hover {
   background-color: rgb(162, 197, 35);
   cursor: pointer !important;
   font-family: 'Courier New', Courier, monospace;
+}
+
+.currentGameType {
+  z-index: 10 !important;
 }
