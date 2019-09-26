@@ -24,11 +24,11 @@ import Skilled4 from '../../../img/Ranks/Skilled_04.png';
 import Skilled3 from '../../../img/Ranks/Skilled_03.png';
 import Skilled2 from '../../../img/Ranks/Skilled_02.png';
 import Skilled1 from '../../../img/Ranks/Skilled_01.png';
-import Specialist5 from '../../../img/Ranks/Skilled_05.png';
-import Specialist4 from '../../../img/Ranks/Skilled_04.png';
-import Specialist3 from '../../../img/Ranks/Skilled_03.png';
-import Specialist2 from '../../../img/Ranks/Skilled_02.png';
-import Specialist1 from '../../../img/Ranks/Skilled_01.png';
+import Specialist5 from '../../../img/Ranks/Specialist_05.png';
+import Specialist4 from '../../../img/Ranks/Specialist_04.png';
+import Specialist3 from '../../../img/Ranks/Specialist_03.png';
+import Specialist2 from '../../../img/Ranks/Specialist_02.png';
+import Specialist1 from '../../../img/Ranks/Specialist_01.png';
 import Expert from '../../../img/Ranks/Expert.png';
 import Survivor from '../../../img/Ranks/Survivor.png';
 import Lone_Survivor from '../../../img/Ranks/Lone_Survivor.png';
@@ -37,11 +37,13 @@ class CardHeader extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clear: false
+      clear: false,
+      desc: 'test'
     };
 
     this.handleHoverOn = this.handleHoverOn.bind(this);
     this.handleHoverOff = this.handleHoverOff.bind(this);
+    this.handleTest = this.handleTest.bind(this);
   }
 
   handleHoverOn() {
@@ -57,6 +59,14 @@ class CardHeader extends Component {
     }));
   }
 
+  handleTest() {
+    return <p className='rankName'>{this.state.desc}</p>;
+  }
+
+  handleRankName() {
+    return <p className='rankName'>{this.state.desc}</p>;
+  }
+
   render() {
     /* const rank = () => {
       if (this.props.view === null) {
@@ -65,6 +75,74 @@ class CardHeader extends Component {
         return this.props.gameType + '-' + this.props.view;
       }
     }; */
+    const RankName = rank => {
+      const rankNumber = parseInt(rank, 10);
+
+      switch (true) {
+        case rankNumber === 0:
+          return <p className='rankName'>Unknown</p>;
+        case rankNumber >= 1 && rankNumber <= 199:
+          return <p className='rankName'>Beginner V</p>;
+        case rankNumber >= 200 && rankNumber <= 399:
+          return <p className='rankName'>Beginner IV</p>;
+        case rankNumber >= 400 && rankNumber <= 599:
+          return <p className='rankName'>Beginner III</p>;
+        case rankNumber >= 600 && rankNumber <= 799:
+          return <p className='rankName'>Beginner II</p>;
+        case rankNumber >= 800 && rankNumber <= 999:
+          return <p className='rankName'>Beginner I</p>;
+        case rankNumber >= 1000 && rankNumber <= 1199:
+          return <p className='rankName'>Novice V</p>;
+        case rankNumber >= 1200 && rankNumber <= 1399:
+          return <p className='rankName'>Novice IV</p>;
+        case rankNumber >= 1400 && rankNumber <= 1599:
+          return <p className='rankName'>Novice III</p>;
+        case rankNumber >= 1600 && rankNumber <= 1799:
+          return <p className='rankName'>Novice II</p>;
+        case rankNumber >= 1800 && rankNumber <= 1999:
+          return <p className='rankName'>Novice I</p>;
+        case rankNumber >= 2000 && rankNumber <= 2199:
+          return <p className='rankName'>Experienced V</p>;
+        case rankNumber >= 2200 && rankNumber <= 2399:
+          return <p className='rankName'>Experienced IV</p>;
+        case rankNumber >= 2400 && rankNumber <= 2599:
+          return <p className='rankName'>Experienced III</p>;
+        case rankNumber >= 2600 && rankNumber <= 2799:
+          return <p className='rankName'>Experienced II</p>;
+        case rankNumber >= 2800 && rankNumber <= 2999:
+          return <p className='rankName'>Experienced I</p>;
+        case rankNumber >= 3000 && rankNumber <= 3199:
+          return <p className='rankName'>Skilled V</p>;
+        case rankNumber >= 3200 && rankNumber <= 3399:
+          return <p className='rankName'>Skilled IV</p>;
+        case rankNumber >= 3400 && rankNumber <= 3599:
+          return <p className='rankName'>Skilled III</p>;
+        case rankNumber >= 3600 && rankNumber <= 3799:
+          return <p className='rankName'>Skilled II</p>;
+        case rankNumber >= 3800 && rankNumber <= 3999:
+          return <p className='rankName'>Skilled I</p>;
+        case rankNumber >= 4000 && rankNumber <= 4199:
+          return <p className='rankName'>Specialist V</p>;
+        case rankNumber >= 4200 && rankNumber <= 4399:
+          return <p className='rankName'>Specialist IV</p>;
+        case rankNumber >= 4400 && rankNumber <= 4599:
+          return <p className='rankName'>Specialist III</p>;
+        case rankNumber >= 4600 && rankNumber <= 4799:
+          return <p className='rankName'>Specialist II</p>;
+        case rankNumber >= 4800 && rankNumber <= 4999:
+          return <p className='rankName'>Specialist I</p>;
+        case rankNumber >= 5000 && rankNumber <= 5999:
+          return <p className='rankName'>Expert</p>;
+        case rankNumber >= 6000 && rankNumber <= 9999:
+          return <p className='rankName'>Survivor</p>;
+        // build leadershipTop 1000
+        case rankNumber >= 10000:
+          return <p>Lone Survivor</p>;
+
+        default:
+          return rank;
+      }
+    };
 
     const rankIcon = rank => {
       const rankNumber = parseInt(rank, 10);
@@ -126,6 +204,7 @@ class CardHeader extends Component {
           return <img src={Expert} className='rankIcon'></img>;
         case rankNumber >= 6000 && rankNumber <= 9999:
           return <img src={Survivor} className='rankIcon'></img>;
+        // build leadershipTop 1000
         case rankNumber >= 10000:
           return <img src={Lone_Survivor} className='rankIcon'></img>;
 
@@ -141,8 +220,9 @@ class CardHeader extends Component {
             {rankIcon(this.props.rank)}
           </Grid>
           <Grid item xs={7} className='headerCardMiddleSection'>
-            <p>{this.props.item.name}</p>
-            <h4>{this.props.rank}</h4>
+            <p className='playerName'>{this.props.item.name}</p>
+            {RankName(this.props.rank)}
+            <h4 className='rankNumber'>{this.props.rank} Points</h4>
           </Grid>
           <Grid item xs={1} className='headerCardRightSection'>
             <Clear

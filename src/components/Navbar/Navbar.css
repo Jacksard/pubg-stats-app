@@ -1,17 +1,25 @@
 :root {
-    --mycolor: rgb(0, 136, 255);
+  --mycolor: rgb(0, 136, 255);
 }
 
 .navbar {
-   
-   margin: 0px !important;
-   height: 60px;
-   color: #fff;
-   text-align: center;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   font-size: 30px;
- }
+  margin: 0px !important;
+  color: #fff;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 30px;
+  max-height: 200px;
+}
 
- h2 {
-     margin: 0;
- }
+h2 {
+  transform: translate(0px, -130px) !important;
+  font-size: 42px;
+  color: rgba(40, 218, 165, 0.801);
+  margin: 0;
+}
+
+.helmet {
+  width: 175px;
+  height: 175px;
+  color: red !important;
+}

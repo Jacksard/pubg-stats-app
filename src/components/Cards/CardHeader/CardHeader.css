@@ -34,22 +34,43 @@
   background-color: #000;
 }
 
-.headerCardMiddleSection p {
-  font-size: 20px;
-  font-family: 'Courier New', Courier, monospace;
-  margin-top: 10px;
-}
-
 /* Right Header */
 .headerCardRightSection {
   background-color: #000;
 }
-
+.MuiGrid-grid-xs-1 {
+  flex-grow: 1 !important;
+}
 .rankIcon {
   position: absolute;
-  /*  width: 110px !important;
-  height: 110px !important; */
-  transform: translate(-60px, 10px) !important;
-  opacity: 0.6;
+  /* width: 350px !important;
+  height: 350px !important; */
+  transform: translate(-60px, 80px) !important;
+  opacity: 0.2;
   z-index: 0 !important;
+}
+
+.playerName {
+  margin: 0;
+  padding-top: 5px;
+  padding-bottom: 2px;
+  font-size: 22px;
+  font-weight: bold;
+  position: relative;
+  z-index: 20;
+}
+
+.rankName {
+  padding-bottom: 2px;
+  margin: 0 !important;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.rankNumber {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 20 !important;
 }
