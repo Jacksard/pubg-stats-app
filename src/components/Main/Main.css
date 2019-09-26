@@ -54,28 +54,31 @@ li {
   position: relative;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1024px) {
   /* styles for narrow screens */
   .App {
-    min-height: 100% !important;
-    min-height: 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: red !important;
+    background-size: 200%;
   }
 }
 @media only screen and (max-width: 600px) {
   /* styles for narrow screens */
   .App {
-    background-size: 220% !important;
-    min-height: 100%;
-    background-repeat: no-repeat;
-    background-attachment: absolute;
-    background-position: center;
-    background-size: cover;
+    position: relative;
+    width: 110%;
+    height: 110%;
+    background-size: 200%;
   }
 }
 @media only screen and (max-width: 400px) {
   /* styles for narrow screens */
+  .App {
+    position: relative;
+    width: 120%;
+    height: 120%;
+    background-size: 200%;
+  }
 }
