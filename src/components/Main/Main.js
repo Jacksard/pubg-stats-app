@@ -3,6 +3,8 @@ import Cards from '../Cards/Cards';
 import './Main.css';
 import { callPlayer } from '../../api/axioscall';
 import { url } from '../../api/actions';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class api extends Component {
   constructor(props) {
@@ -50,7 +52,7 @@ class api extends Component {
     const newView = [...this.state.playersView];
     newView.splice(id, 1);
     this.setState({ playersView: newView });
-    // splice player View from playerGameType array 
+    // splice player View from playerGameType array
     const newContent = this.state.playerGameType;
     newContent.splice(id, 1);
     this.setState({ playerGameType: newContent });
@@ -123,28 +125,39 @@ class api extends Component {
   }
   render() {
     return (
-      <div className="mainContainer">
+      <div className='mainContainer'>
         <form onSubmit={this.handlePlayerSubmit}>
-          <label>
-            Name:
-            <input
-              type='text'
-              value={this.state.playerName}
-              onChange={this.handleChange}
-            />
-          </label>
-          <input type='submit' value='Submit' />
           <br />
+          <div className='textField-mu'>
+            <TextField
+              onChange={this.handleChange}
+              id='standard-full-width'
+              style={{ margin: 8 }}
+              placeholder='Player Name'
+              helperText='Case Sensitive'
+              fullWidth
+              margin='normal'
+              InputLabelProps={{
+                shrink: true
+              }}
+            />
+            <br />
+            <Button type='submit' value='Submit'>
+              Submit
+            </Button>
+          </div>
 
           {/* players buttons */}
+
           <button onClick={this.handleChange} value='J4cksard'>
             J4cksard
           </button>
+
           <button onClick={this.handleChange} value='Twisted_OO'>
             Twisted_OO
           </button>
           <button onClick={this.handleChange} value='Valhalla_-'>
-          Valhalla_-
+            Valhalla_-
           </button>
           <button onClick={this.handleChange} value='chikenkk'>
             chikenkk

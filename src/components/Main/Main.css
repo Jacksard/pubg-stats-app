@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
 ul {
   list-style-type: none;
 }
@@ -10,3 +18,31 @@ li {
   padding: 5px;
 }
 
+.textField-mu {
+  opacity: 1;
+  z-index: 25 !important;
+  display: block;
+}
+.MuiFormControl-fullWidth {
+  width: 300px !important;
+}
+
+.MuiInputLabel-root {
+  color: white !important;
+}
+
+.MuiInput-input {
+  font-size: 30px !important;
+}
+
+.MuiInput-underline:after {
+  color: white !important;
+  border-bottom: 2px solid white !important;
+}
+
+#standard-full-width {
+  color: white !important;
+  opacity: 1;
+  z-index: 100 !important;
+  position: relative;
+}
