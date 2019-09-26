@@ -173,7 +173,7 @@ class SimpleCard extends Component {
                       className='currentGameType'
                     />
 
-                    <div className='fabDiv'>
+                    {/* <div className='fabDiv'>
                       <Fab
                         color='primary'
                         aria-label='add'
@@ -182,7 +182,7 @@ class SimpleCard extends Component {
                       >
                         <AddIcon className='addIcon' />
                       </Fab>
-                    </div>
+                    </div> */}
                   </Card>
                 </li>
               );

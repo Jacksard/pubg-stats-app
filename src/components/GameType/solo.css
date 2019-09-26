@@ -1,11 +1,16 @@
 .noData {
-  min-height: 300px;
+  min-height: 240px;
 }
 .currentGameType {
   min-height: 300px;
 }
 
 .middle {
-  padding-top: 120px;
+  padding-top: 70px;
   color: rgb(255, 234, 0);
+}
+
+.statsGrid {
+  display: flex;
+  font-size: 14px;
 }

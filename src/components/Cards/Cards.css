@@ -1,6 +1,7 @@
 .card {
-  min-width: 250px;
-  max-width: 250px;
+  min-width: 260px;
+  max-width: 260px;
+  max-height: 380px;
   opacity: 1;
   padding: 5px;
   margin: auto;
@@ -20,6 +21,9 @@
     opacity: 1;
   }
 } */
+li {
+  height: 400px;
+}
 
 .header {
   background-color: lightBlue;
@@ -80,7 +84,6 @@
 .gameTypeContainer {
   margin: 2px !important;
   width: auto !important;
-  opacity: 1 !important;
 }
 .gameType {
   padding: 2px !important;
@@ -107,4 +110,12 @@
 
 .currentGameType {
   z-index: 10 !important;
+}
+
+@media only screen and (max-width: 900px) {
+  /* styles for narrow screens */
+  .card {
+    min-width: 240px;
+    max-width: 240px;
+  }
 }

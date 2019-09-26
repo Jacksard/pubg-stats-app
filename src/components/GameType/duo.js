@@ -1,4 +1,5 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
 
 const Duo = props => {
   const stats_kd_fpp = (
@@ -24,10 +25,14 @@ const Duo = props => {
       'duo-fpp'
     ].top10s;
 
-  const stats_rank_fpp =
+  const stats_longestKill_fpp =
     props.data[props.index].currentSeason.data.attributes.gameModeStats[
       'duo-fpp'
-    ].rankPoints;
+    ].longestKill.toFixed(0) + 'm';
+  const stats_headshotKills_fpp =
+    props.data[props.index].currentSeason.data.attributes.gameModeStats[
+      'duo-fpp'
+    ].headshotKills;
 
   // TPP
   const stats_kd_tpp = (
@@ -48,9 +53,13 @@ const Duo = props => {
     props.data[props.index].currentSeason.data.attributes.gameModeStats['duo']
       .top10s;
 
-  const stats_rank_tpp = props.data[
-    props.index
-  ].currentSeason.data.attributes.gameModeStats['duo'].rankPoints.toFixed(0);
+  const stats_longestKill_tpp =
+    props.data[props.index].currentSeason.data.attributes.gameModeStats[
+      'duo'
+    ].longestKill.toFixed(0) + 'm';
+  const stats_headshotKills_tpp =
+    props.data[props.index].currentSeason.data.attributes.gameModeStats['duo']
+      .headshotKills;
 
   return (
     <div>
@@ -60,24 +69,32 @@ const Duo = props => {
             <p className='middle'>No Records</p>
           </div>
         ) : (
-          <div className='currentGameType'>
-            <p>K/D: {stats_kd_fpp}</p>
-            <p>Wins: {stats_wins_fpp}</p>
-            <p>Kills: {stats_kills_fpp}</p>
-            <p>top10s: {stats_top10s_fpp}</p>
-          </div>
+          <Grid item xs={12} className='statsGrid'>
+            <Grid item xs={12}>
+              <p id='stats'>K/D: {stats_kd_fpp}</p>
+              <p id='stats'>Wins: {stats_wins_fpp}</p>
+              <p id='stats'>Kills: {stats_kills_fpp}</p>
+              <p id='stats'>Top10s: {stats_top10s_fpp}</p>
+              <p id='stats'>LongestKill: {stats_longestKill_fpp}</p>
+              <p id='stats'>Headshot Kills: {stats_headshotKills_fpp}</p>
+            </Grid>
+          </Grid>
         )
       ) : stats_kd_tpp === 'NaN' ? (
-        <div className='noData'>
+        <div className='noData '>
           <p className='middle'>No Records</p>
         </div>
       ) : (
-        <div>
-          <p>K/D: {stats_kd_tpp}</p>
-          <p>Wins: {stats_wins_tpp}</p>
-          <p>Kills: {stats_kills_tpp}</p>
-          <p>top10s:{stats_top10s_tpp}</p>
-        </div>
+        <Grid item xs={12} className='statsGrid'>
+          <Grid item xs={12}>
+            <p id='stats'>K/D: {stats_kd_tpp}</p>
+            <p id='stats'>Wins: {stats_wins_tpp}</p>
+            <p id='stats'>Kills: {stats_kills_tpp}</p>
+            <p id='stats'>Top10s: {stats_top10s_tpp}</p>
+            <p id='stats'>LongestKill: {stats_longestKill_tpp}</p>
+            <p id='stats'>Headshot Kills: {stats_headshotKills_tpp}</p>
+          </Grid>
+        </Grid>
       )}
     </div>
   );

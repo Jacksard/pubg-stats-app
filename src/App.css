@@ -24,18 +24,18 @@ body {
 @media only screen and (max-width: 768px) {
   /* styles for narrow screens */
   .App {
-    background-size: 150% !important;
+    background-size: 170% !important;
     top: 50px !important;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
   }
 }
+
 @media only screen and (max-width: 450px) {
   /* styles for narrow screens */
   .App {
-    background-size: 190% !important;
-
+    background-size: 200% !important;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;

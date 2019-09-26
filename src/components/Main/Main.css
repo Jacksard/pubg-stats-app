@@ -3,15 +3,22 @@
 }
 
 button {
+  color: white;
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
+  border: 1px solid yellow;
+  border-radius: 10px;
+  width: 100px;
+  padding: 5px;
+  margin: 5px;
 }
 
 ul {
   list-style-type: none;
+  padding: 0;
 }
 
 li {
@@ -45,4 +52,30 @@ li {
   opacity: 1;
   z-index: 100 !important;
   position: relative;
+}
+
+@media only screen and (max-width: 900px) {
+  /* styles for narrow screens */
+  .App {
+    min-height: 100% !important;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+}
+@media only screen and (max-width: 600px) {
+  /* styles for narrow screens */
+  .App {
+    background-size: 220% !important;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: absolute;
+    background-position: center;
+    background-size: cover;
+  }
+}
+@media only screen and (max-width: 400px) {
+  /* styles for narrow screens */
 }
