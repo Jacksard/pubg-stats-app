@@ -157,9 +157,6 @@ class api extends Component {
           <button onClick={this.handleChange} value='chikenkk'>
             chikenkk
           </button>
-          <button onClick={this.handleChange} value='The87Beast'>
-            The87Beast
-          </button>
 
           {this.state.isError === true ? <h4>{this.state.msg}</h4> : null}
         </form>
