@@ -8,19 +8,8 @@
   background-color: rgb(41, 41, 41) !important;
   color: white !important;
   overflow: hidden;
-
-  /* animation: heading;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards; */
 }
-/* @keyframes heading {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-} */
+
 li {
   height: 400px;
 }
@@ -35,7 +24,6 @@ li {
 }
 
 .headLeft {
-  background-color: rgb(47, 184, 230);
   border-radius: 0px;
   margin: 0px;
   height: 90px;
@@ -111,11 +99,12 @@ li {
 .currentGameType {
   z-index: 10 !important;
 }
-
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 648px) {
   /* styles for narrow screens */
   .card {
-    min-width: 240px;
-    max-width: 240px;
+    width: 90% !important;
   }
+}
+@media only screen and (max-width: 411px) {
+  /* styles for narrow screens */
 }

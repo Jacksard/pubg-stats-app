@@ -168,17 +168,19 @@ class api extends Component {
 
           {this.state.isError === true ? <h4>{this.state.msg}</h4> : null}
         </form>
-        <ul>
-          <Cards
-            view={this.state.playersView}
-            content={this.state.playerGameType}
-            changeContent={this.handleChangeContent}
-            changeView={this.handleChangeView}
-            player={this.state.playersArray}
-            delete={this.handlePlayerDelete}
-            isLoading={this.state.loading}
-          />
-        </ul>
+        <div className='cardContainer'>
+          <ul>
+            <Cards
+              view={this.state.playersView}
+              content={this.state.playerGameType}
+              changeContent={this.handleChangeContent}
+              changeView={this.handleChangeView}
+              player={this.state.playersArray}
+              delete={this.handlePlayerDelete}
+              isLoading={this.state.loading}
+            />
+          </ul>
+        </div>
       </div>
     );
   }
