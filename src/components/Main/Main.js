@@ -137,7 +137,7 @@ class api extends Component {
               value={this.state.playerName}
             />
             <br />
-            <Button type='submit' value='Submit'>
+            <Button type='submit' value='Submit' className='submitButton'>
               Submit
             </Button>
           </div>

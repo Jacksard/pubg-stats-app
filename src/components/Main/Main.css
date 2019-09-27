@@ -10,7 +10,8 @@
 .textField-mu h1 {
   padding: 0;
   margin: 0;
-  font-size: 3rem;
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
 
 .inputField {
@@ -18,6 +19,11 @@
   height: 32px;
   font-size: 20px;
   text-align: center;
+}
+
+.submitButton {
+  margin: 10px !important;
+  background-color: rgba(45, 49, 53, 0.2) !important;
 }
 
 button {
