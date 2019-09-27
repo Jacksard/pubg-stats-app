@@ -129,17 +129,12 @@ class api extends Component {
         <form onSubmit={this.handlePlayerSubmit}>
           <br />
           <div className='textField-mu'>
-            <TextField
+            <h1>PLAYER NAME</h1>
+            <input
+              label='Name'
+              className='inputField'
               onChange={this.handleChange}
-              id='standard-full-width'
-              style={{ margin: 8 }}
-              placeholder='Player Name'
-              helperText='Case Sensitive'
-              fullWidth
-              margin='normal'
-              InputLabelProps={{
-                shrink: true
-              }}
+              value={this.state.playerName}
             />
             <br />
             <Button type='submit' value='Submit'>
