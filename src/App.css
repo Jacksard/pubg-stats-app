@@ -22,7 +22,7 @@ body {
   background: rgba(19, 20, 5, 0.315);
   z-index: 25;
   color: white;
-  height: 100vh;
+  background-size: 500%;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -54,6 +54,12 @@ body {
 @media only screen and (max-width: 411px) {
   .App {
     background-size: 300%;
+    background-attachment: fixed;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .App {
+    background-size: 500%;
     background-attachment: fixed;
   }
 

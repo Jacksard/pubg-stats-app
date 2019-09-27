@@ -57,33 +57,33 @@ class api extends Component {
     newContent.splice(id, 1);
     this.setState({ playerGameType: newContent });
 
-    console.log(this.state.playersView);
+    //console.log(this.state.playersView);
     this.setState({ loading: false });
   }
 
   handleChangeView(type, i) {
-    console.log(type);
-    console.log(i);
+    //console.log(type);
+    //console.log(i);
     let newView = this.state.playersView;
 
     newView[i] = type;
     this.setState({ playersView: newView });
-    console.log(this.state.playersView);
+    //console.log(this.state.playersView);
   }
 
   handleChangeContent(type, i) {
-    console.log(type);
-    console.log(i);
+    //console.log(type);
+    //console.log(i);
     let newContent = this.state.playerGameType;
     newContent[i] = type;
     this.setState({ playerGameType: newContent });
-    console.log(this.state.playerGameType);
+    //console.log(this.state.playerGameType);
   }
 
   async handlePlayerSubmit(event) {
     this.setState({ loading: true });
     event.preventDefault();
-    console.log('URL API:  ' + url.player + this.state.playerName);
+    //console.log('URL API:  ' + url.player + this.state.playerName);
 
     // check if player name exists in players array before callPlayer, to avoid redundant API call
     let userExist = this.state.playersArray.find(
@@ -110,8 +110,8 @@ class api extends Component {
             });
             this.setState({ loading: false });
             this.setState({ playerName: '' });
-            console.log(this.state.playersArray);
-            console.log(this.state.playerGameType);
+            //console.log(this.state.playersArray);
+            //console.log(this.state.playerGameType);
           }
         })
         .catch(error => {

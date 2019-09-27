@@ -45,7 +45,7 @@
   position: absolute;
   /* width: 350px !important;
   height: 350px !important; */
-  transform: translate(-60px, 80px) !important;
+  transform: translate(-25px, 80px) !important;
   opacity: 0.2;
   z-index: 0 !important;
 }
@@ -73,4 +73,28 @@
   padding: 0;
   position: relative;
   z-index: 20 !important;
+}
+
+@media only screen and (max-width: 648px) {
+  /* styles for narrow screens */
+  .card {
+    /* background-color: red !important; */
+    max-width: 220px;
+  }
+  .rankIcon {
+    transform: translate(-43px, 80px) !important;
+  }
+}
+@media only screen and (max-width: 411px) {
+  /* styles for narrow screens */
+  .card {
+    /* background-color: blue !important; */
+    max-width: 165px;
+  }
+  .rankIcon {
+    width: 220px;
+    height: 220px;
+    transform: translate(-35px, 80px) !important;
+    position: fixed;
+  }
 }

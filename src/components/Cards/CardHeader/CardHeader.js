@@ -216,10 +216,10 @@ class CardHeader extends Component {
     return (
       <div>
         <Grid item xs={12} className='headerCard'>
-          <Grid item xs={4} className='headerCardLeftSection'>
+          <Grid item xs={1} className='headerCardLeftSection'>
             {rankIcon(this.props.rank)}
           </Grid>
-          <Grid item xs={7} className='headerCardMiddleSection'>
+          <Grid item xs={10} className='headerCardMiddleSection'>
             <p className='playerName'>{this.props.item.name}</p>
             {RankName(this.props.rank)}
             <h4 className='rankNumber'>{this.props.rank} Points</h4>

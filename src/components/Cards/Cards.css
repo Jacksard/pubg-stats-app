@@ -1,5 +1,5 @@
 .card {
-  min-width: 260px;
+  width: 260px;
   max-width: 260px;
   max-height: 380px;
   opacity: 1;
@@ -102,9 +102,14 @@ li {
 @media only screen and (max-width: 648px) {
   /* styles for narrow screens */
   .card {
-    width: 90% !important;
+    /* background-color: red !important; */
+    max-width: 220px;
   }
 }
 @media only screen and (max-width: 411px) {
   /* styles for narrow screens */
+  .card {
+    /* background-color: blue !important; */
+    max-width: 160px;
+  }
 }
