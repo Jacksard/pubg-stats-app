@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Cards from '../Cards/Cards';
 import './Main.css';
 import { callPlayer } from '../../api/axioscall';
-import { url } from '../../api/actions';
-import TextField from '@material-ui/core/TextField';
+
 import Button from '@material-ui/core/Button';
 
 class api extends Component {
@@ -129,7 +128,7 @@ class api extends Component {
         <form onSubmit={this.handlePlayerSubmit}>
           <br />
           <div className='textField-mu'>
-            <h1>PLAYER NAME</h1>
+            <p className='playerName'>PLAYER NAME</p>
             <input
               label='Name'
               className='inputField'

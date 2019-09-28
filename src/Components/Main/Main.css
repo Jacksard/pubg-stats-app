@@ -7,6 +7,11 @@
   text-align: center !important;
 }
 
+.playerName {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
 .textField-mu h1 {
   padding: 0;
   margin: 0;
@@ -23,7 +28,7 @@
 
 .submitButton {
   margin: 10px !important;
-  background-color: rgba(45, 49, 53, 0.2) !important;
+  background-color: rgba(247, 174, 92, 0.781) !important;
 }
 
 button {

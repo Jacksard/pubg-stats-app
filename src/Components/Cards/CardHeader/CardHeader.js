@@ -149,64 +149,108 @@ class CardHeader extends Component {
 
       switch (true) {
         case rankNumber === 0:
-          return <img src={Unknown} className='rankIcon'></img>;
+          return <img src={Unknown} alt='Rank icon' className='rankIcon'></img>;
         case rankNumber >= 1 && rankNumber <= 199:
-          return <img src={Beginner5} className='rankIcon'></img>;
+          return (
+            <img src={Beginner5} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 200 && rankNumber <= 399:
-          return <img src={Beginner4} className='rankIcon'></img>;
+          return (
+            <img src={Beginner4} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 400 && rankNumber <= 599:
-          return <img src={Beginner3} className='rankIcon'></img>;
+          return (
+            <img src={Beginner3} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 600 && rankNumber <= 799:
-          return <img src={Beginner2} className='rankIcon'></img>;
+          return (
+            <img src={Beginner2} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 800 && rankNumber <= 999:
-          return <img src={Beginner1} className='rankIcon'></img>;
+          return (
+            <img src={Beginner1} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 1000 && rankNumber <= 1199:
-          return <img src={Novice5} className='rankIcon'></img>;
+          return <img src={Novice5} alt='Rank icon' className='rankIcon'></img>;
         case rankNumber >= 1200 && rankNumber <= 1399:
-          return <img src={Novice4} className='rankIcon'></img>;
+          return <img src={Novice4} alt='Rank icon' className='rankIcon'></img>;
         case rankNumber >= 1400 && rankNumber <= 1599:
-          return <img src={Novice3} className='rankIcon'></img>;
+          return <img src={Novice3} alt='Rank icon' className='rankIcon'></img>;
         case rankNumber >= 1600 && rankNumber <= 1799:
-          return <img src={Novice2} className='rankIcon'></img>;
+          return <img src={Novice2} alt='Rank icon' className='rankIcon'></img>;
         case rankNumber >= 1800 && rankNumber <= 1999:
-          return <img src={Novice1} className='rankIcon'></img>;
+          return <img src={Novice1} alt='Rank icon' className='rankIcon'></img>;
         case rankNumber >= 2000 && rankNumber <= 2199:
-          return <img src={Experienced5} className='rankIcon'></img>;
+          return (
+            <img src={Experienced5} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 2200 && rankNumber <= 2399:
-          return <img src={Experienced4} className='rankIcon'></img>;
+          return (
+            <img src={Experienced4} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 2400 && rankNumber <= 2599:
-          return <img src={Experienced3} className='rankIcon'></img>;
+          return (
+            <img src={Experienced3} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 2600 && rankNumber <= 2799:
-          return <img src={Experienced2} className='rankIcon'></img>;
+          return (
+            <img src={Experienced2} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 2800 && rankNumber <= 2999:
-          return <img src={Experienced1} className='rankIcon'></img>;
+          return (
+            <img src={Experienced1} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 3000 && rankNumber <= 3199:
-          return <img src={Skilled5} className='rankIcon'></img>;
+          return (
+            <img src={Skilled5} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 3200 && rankNumber <= 3399:
-          return <img src={Skilled4} className='rankIcon'></img>;
+          return (
+            <img src={Skilled4} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 3400 && rankNumber <= 3599:
-          return <img src={Skilled3} className='rankIcon'></img>;
+          return (
+            <img src={Skilled3} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 3600 && rankNumber <= 3799:
-          return <img src={Skilled2} className='rankIcon'></img>;
+          return (
+            <img src={Skilled2} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 3800 && rankNumber <= 3999:
-          return <img src={Skilled1} className='rankIcon'></img>;
+          return (
+            <img src={Skilled1} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 4000 && rankNumber <= 4199:
-          return <img src={Specialist5} className='rankIcon'></img>;
+          return (
+            <img src={Specialist5} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 4200 && rankNumber <= 4399:
-          return <img src={Specialist4} className='rankIcon'></img>;
+          return (
+            <img src={Specialist4} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 4400 && rankNumber <= 4599:
-          return <img src={Specialist3} className='rankIcon'></img>;
+          return (
+            <img src={Specialist3} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 4600 && rankNumber <= 4799:
-          return <img src={Specialist2} className='rankIcon'></img>;
+          return (
+            <img src={Specialist2} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 4800 && rankNumber <= 4999:
-          return <img src={Specialist1} className='rankIcon'></img>;
+          return (
+            <img src={Specialist1} alt='Rank icon' className='rankIcon'></img>
+          );
         case rankNumber >= 5000 && rankNumber <= 5999:
-          return <img src={Expert} className='rankIcon'></img>;
+          return <img src={Expert} alt='Rank icon' className='rankIcon'></img>;
         case rankNumber >= 6000 && rankNumber <= 9999:
-          return <img src={Survivor} className='rankIcon'></img>;
+          return (
+            <img src={Survivor} alt='Rank icon' className='rankIcon'></img>
+          );
         // build leadershipTop 1000
         case rankNumber >= 10000:
-          return <img src={Lone_Survivor} className='rankIcon'></img>;
+          return (
+            <img src={Lone_Survivor} alt='Rank icon' className='rankIcon'></img>
+          );
 
         default:
           return rank;

@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import shortid from 'shortid';
 import Grid from '@material-ui/core/Grid';
-import Clear from '@material-ui/icons/Clear';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+
 import Loader from 'react-loader-spinner';
 import './Cards.css';
 import CurrentGameType from '../CurrentGameType/CurrentGameType';
