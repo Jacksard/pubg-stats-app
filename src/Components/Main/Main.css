@@ -81,3 +81,8 @@ li {
   z-index: 100 !important;
   position: relative;
 }
+
+.buttonDisabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}

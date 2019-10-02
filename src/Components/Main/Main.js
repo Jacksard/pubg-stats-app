@@ -101,6 +101,7 @@ class api extends Component {
             this.setState({
               playersArray: joined
             });
+            console.log(this.state.playersArray);
             this.setState({
               playerGameType: this.state.playerGameType.concat('solo')
             });
@@ -123,6 +124,14 @@ class api extends Component {
     }
   }
   render() {
+    const buttons = () => {
+      if (!this.state.loading) {
+        return false;
+      } else {
+        return true;
+      }
+    };
+
     return (
       <div className='mainContainer'>
         <form onSubmit={this.handlePlayerSubmit}>
@@ -136,24 +145,40 @@ class api extends Component {
               value={this.state.playerName}
             />
             <br />
-            <Button type='submit' value='Submit' className='submitButton'>
+            <Button type='submit' value='Submit'>
               Submit
             </Button>
           </div>
 
           {/* players buttons */}
 
-          <button onClick={this.handleChange} value='J4cksard'>
+          <button
+            onClick={this.handleChange}
+            value='J4cksard'
+            disabled={buttons()}
+          >
             J4cksard
           </button>
 
-          <button onClick={this.handleChange} value='Twisted_OO'>
+          <button
+            onClick={this.handleChange}
+            value='Twisted_OO'
+            disabled={buttons()}
+          >
             Twisted_OO
           </button>
-          <button onClick={this.handleChange} value='Valhalla_-'>
+          <button
+            onClick={this.handleChange}
+            value='Valhalla_-'
+            disabled={buttons()}
+          >
             Valhalla_-
           </button>
-          <button onClick={this.handleChange} value='chikenkk'>
+          <button
+            onClick={this.handleChange}
+            value='chikenkk'
+            disabled={buttons()}
+          >
             chikenkk
           </button>
 
