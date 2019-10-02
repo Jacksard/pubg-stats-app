@@ -7,7 +7,38 @@ import './CurrentGameType.css';
 class currentGameType extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      comparison: {
+        kd: null,
+        kills: null,
+        top10s: null,
+        longestKill: null,
+        headshotKills: null
+      }
+    };
+  }
+
+  componentDidMount() {
+    // Map all comparison variables here
+    const kd = this.props.data.map(item =>
+      (
+        item.currentSeason.data.attributes.gameModeStats['solo-fpp'].kills /
+        item.currentSeason.data.attributes.gameModeStats['solo-fpp'].losses
+      ).toFixed(2)
+    );
+
+    const kills = this.props.data.map(
+      item => item.currentSeason.data.attributes.gameModeStats['solo-fpp'].kills
+    );
+
+    console.log(kd);
+    console.log(kills);
+
+    console.log(kills);
+    const highestKill = Math.max.apply(Math, kills);
+
+    this.setState({ comparison: [null] });
+    console.log(this.state.comparison);
   }
 
   handleGameType(type) {
@@ -18,6 +49,7 @@ class currentGameType extends Component {
             data={this.props.data}
             index={this.props.index}
             view={this.props.view}
+            comparison={this.state.comparison}
           />
         );
       case 'duo':

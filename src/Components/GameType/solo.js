@@ -62,6 +62,17 @@ const Solo = props => {
     props.data[props.index].currentSeason.data.attributes.gameModeStats['solo']
       .headshotKills;
 
+  // comparison function
+  const isMax = (comparison, index) => {
+    console.log('test is Max: ' + comparison + ' index: ' + index);
+
+    if (comparison[index]) {
+      return 'maxValue';
+    } else {
+      return null;
+    }
+  };
+
   return (
     <React.Fragment>
       {props.view[props.index] === 'fpp' ? (
@@ -72,7 +83,9 @@ const Solo = props => {
         ) : (
           <Grid item xs={12} className='statsGrid'>
             <Grid item xs={12}>
-              <p id='stats'>K/D: {stats_kd_fpp}</p>
+              <p id='stats' className={isMax(props.comparison, props.index)}>
+                K/D: {stats_kd_fpp}
+              </p>
               <p id='stats'>Wins: {stats_wins_fpp}</p>
               <p id='stats'>Kills: {stats_kills_fpp}</p>
               <p id='stats'>Top10s: {stats_top10s_fpp}</p>

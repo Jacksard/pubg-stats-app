@@ -4,6 +4,7 @@ import './Main.css';
 import { callPlayer } from '../../api/axioscall';
 
 import Button from '@material-ui/core/Button';
+import { noConflict } from 'q';
 
 class api extends Component {
   constructor(props) {
@@ -13,6 +14,14 @@ class api extends Component {
       playersArray: [],
       playersView: [],
       playerGameType: [],
+      comparison: {
+        kd: null,
+        wins: null,
+        kills: null,
+        top10s: null,
+        longestKill: null,
+        HeadShotKills: null
+      },
       loading: false,
       error: {
         isError: false,
@@ -108,6 +117,16 @@ class api extends Component {
             this.setState({
               playersView: this.state.playersView.concat('fpp')
             });
+
+            // Comparison data
+
+            console.log('TEST for comparison');
+            /* this.state.playersArray.length > 1
+              ? console.log('yes')
+              : console.log('no'); */
+
+            this.setState({ comparison: null });
+
             this.setState({ loading: false });
             this.setState({ playerName: '' });
             //console.log(this.state.playersArray);
@@ -124,7 +143,7 @@ class api extends Component {
     }
   }
   render() {
-    const buttons = () => {
+    const buttonDisabled = () => {
       if (!this.state.loading) {
         return false;
       } else {
@@ -145,7 +164,7 @@ class api extends Component {
               value={this.state.playerName}
             />
             <br />
-            <Button type='submit' value='Submit'>
+            <Button type='submit' value='Submit' className='submitButton'>
               Submit
             </Button>
           </div>
@@ -155,7 +174,7 @@ class api extends Component {
           <button
             onClick={this.handleChange}
             value='J4cksard'
-            disabled={buttons()}
+            disabled={buttonDisabled()}
           >
             J4cksard
           </button>
@@ -163,21 +182,21 @@ class api extends Component {
           <button
             onClick={this.handleChange}
             value='Twisted_OO'
-            disabled={buttons()}
+            disabled={buttonDisabled()}
           >
             Twisted_OO
           </button>
           <button
             onClick={this.handleChange}
             value='Valhalla_-'
-            disabled={buttons()}
+            disabled={buttonDisabled()}
           >
             Valhalla_-
           </button>
           <button
             onClick={this.handleChange}
             value='chikenkk'
-            disabled={buttons()}
+            disabled={buttonDisabled()}
           >
             chikenkk
           </button>

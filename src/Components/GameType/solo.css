@@ -14,3 +14,7 @@
   display: flex;
   font-size: 14px;
 }
+
+.maxValue {
+  color: greenyellow;
+}
