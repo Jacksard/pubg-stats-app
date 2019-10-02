@@ -188,10 +188,10 @@ class api extends Component {
           </button>
           <button
             onClick={this.handleChange}
-            value='Valhalla_-'
+            value='Kard4shiaN'
             disabled={buttonDisabled()}
           >
-            Valhalla_-
+            Kard4shiaN
           </button>
           <button
             onClick={this.handleChange}
