@@ -9,23 +9,21 @@ class currentGameType extends Component {
     super(props);
     this.state = {
       comparisonData: {
-        kd: null,
-        kills: null,
-        top10s: null,
-        longestKill: null,
-        headshotKills: null
+        kd: { winners: [] },
+        wins: { winners: [] },
+        kills: { winners: [] },
+        top10s: { winners: [] },
+        longestKill: { winners: [] },
+        headshotKills: { winners: [] }
       }
     };
+
+    this.indexHighValue = this.indexHighValue.bind(this);
+    this.winners = this.winners.bind(this);
+    this.indexHighValue = this.indexHighValue.bind(this);
   }
 
-  componentDidMount() {
-    const indexHighValue = array => {
-      const indexOfMaxValue = array.reduce(
-        (indexMax, x, i, arr) => (x > arr[indexMax] ? i : indexMax),
-        0
-      );
-      return indexOfMaxValue;
-    };
+  componentWillMount() {
     // Map all comparison variables here
     // K/D
     const kd = this.props.data.map(item =>
@@ -34,7 +32,6 @@ class currentGameType extends Component {
           item.currentSeason.data.attributes.gameModeStats['solo-fpp'].losses
       ).toFixed(2)
     );
-    console.log(kd);
     // Wins
     const wins = this.props.data.map(
       item => item.currentSeason.data.attributes.gameModeStats['solo-fpp'].wins
@@ -61,24 +58,55 @@ class currentGameType extends Component {
           .headshotKills
     );
 
-    console.log(kd);
+    /* console.log(kd);
     console.log(wins);
     console.log(kills);
     console.log(top10s);
     console.log(longestKill);
-    console.log(headshotKills);
+    console.log(headshotKills); */
 
     const comparisonCopy = this.state.comparisonData;
 
-    comparisonCopy.kd = indexHighValue(kd);
-    comparisonCopy.wins = indexHighValue(wins);
-    comparisonCopy.kills = indexHighValue(kills);
-    comparisonCopy.top10s = indexHighValue(top10s);
-    comparisonCopy.longestKill = indexHighValue(longestKill);
-    comparisonCopy.headshotKills = indexHighValue(headshotKills);
+    comparisonCopy.kd.winners = this.winners(kd);
+    comparisonCopy.wins.winners = this.winners(wins);
+    comparisonCopy.kills.winners = this.winners(kills);
+    comparisonCopy.top10s.winners = this.winners(top10s);
+    comparisonCopy.longestKill.winners = this.winners(longestKill);
+    comparisonCopy.headshotKills.winners = this.winners(headshotKills);
 
     this.setState({ comparisonData: comparisonCopy });
-    console.log(this.state.comparisonData);
+
+    //console.log(this.state.comparisonData);
+  }
+
+  indexHighValue(array) {
+    const indexOfMaxValue = array.reduce(
+      (indexMax, x, i, arr) => (x > arr[indexMax] ? i : indexMax),
+      0
+    );
+    return indexOfMaxValue;
+  }
+
+  winners(array) {
+    const result = [];
+    if (array.length === 1) {
+      return 0;
+    } else {
+      const indexOfMaxValue = array.reduce(
+        (indexMax, x, i, arr) => (x > arr[indexMax] ? i : indexMax),
+        0
+      );
+
+      const maxValue = array[indexOfMaxValue];
+      //console.log('MaxValue: ' + maxValue);
+      array.map((item, index) => {
+        //  console.log(maxValue);
+        if (item == Number(maxValue)) {
+          result.push(index);
+        }
+      });
+      return result;
+    }
   }
 
   handleGameType(type) {
@@ -98,6 +126,7 @@ class currentGameType extends Component {
             data={this.props.data}
             index={this.props.index}
             view={this.props.view}
+            comparisonData={this.state.comparisonData}
           />
         );
       case 'squad':
@@ -106,6 +135,7 @@ class currentGameType extends Component {
             data={this.props.data}
             index={this.props.index}
             view={this.props.view}
+            comparisonData={this.state.comparisonData}
           />
         );
       default:

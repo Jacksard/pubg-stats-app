@@ -64,14 +64,15 @@ const Solo = props => {
 
   // comparison function
   const isMax = (type, data, index) => {
-    console.log('test is Max: ' + data.kd + ' index: ' + index);
-    console.log(Object.values(data));
-    console.log(data[type]);
-    console.log(index);
-    if (data[type] == index) {
+    //console.log(data);
+
+    if (
+      data[type].winners.length === 1 &&
+      data[type].winners == Number(index)
+    ) {
       return 'maxValue';
     } else {
-      return 'false';
+      return null;
     }
   };
 
@@ -117,7 +118,7 @@ const Solo = props => {
                   props.index
                 )}
               >
-                LongestKill: {stats_longestKill_fpp}
+                Longest Kill: {stats_longestKill_fpp}
               </p>
               <p
                 id='stats'

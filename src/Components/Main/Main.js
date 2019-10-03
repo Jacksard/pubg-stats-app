@@ -4,7 +4,6 @@ import './Main.css';
 import { callPlayer } from '../../api/axioscall';
 
 import Button from '@material-ui/core/Button';
-import { noConflict } from 'q';
 
 class api extends Component {
   constructor(props) {
@@ -110,7 +109,7 @@ class api extends Component {
             this.setState({
               playersArray: joined
             });
-            console.log(this.state.playersArray);
+            //console.log(this.state.playersArray);
             this.setState({
               playerGameType: this.state.playerGameType.concat('solo')
             });
@@ -119,11 +118,6 @@ class api extends Component {
             });
 
             // Comparison data
-
-            console.log('TEST for comparison');
-            /* this.state.playersArray.length > 1
-              ? console.log('yes')
-              : console.log('no'); */
 
             this.setState({ comparison: null });
 
@@ -199,6 +193,34 @@ class api extends Component {
             disabled={buttonDisabled()}
           >
             chikenkk
+          </button>
+          <button
+            onClick={this.handleChange}
+            value='twitch_tmathree'
+            disabled={buttonDisabled()}
+          >
+            twitch_tmathree
+          </button>
+          <button
+            onClick={this.handleChange}
+            value='Shocki-'
+            disabled={buttonDisabled()}
+          >
+            Shocki-
+          </button>
+          <button
+            onClick={this.handleChange}
+            value='WackyJacky101'
+            disabled={buttonDisabled()}
+          >
+            WackyJacky101
+          </button>
+          <button
+            onClick={this.handleChange}
+            value='chocoTaco'
+            disabled={buttonDisabled()}
+          >
+            chocoTaco
           </button>
 
           {this.state.isError === true ? <h4>{this.state.msg}</h4> : null}

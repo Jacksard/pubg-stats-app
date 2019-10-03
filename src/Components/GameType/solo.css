@@ -18,3 +18,7 @@
 .maxValue {
   color: greenyellow;
 }
+
+.tie {
+  color: orange;
+}

@@ -40,7 +40,8 @@ button {
   overflow: hidden;
   border: 1px solid yellow;
   border-radius: 10px;
-  width: 100px;
+  width: 120px;
+  height: 30px;
   padding: 5px;
   margin: 5px;
 }
