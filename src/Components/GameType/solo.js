@@ -63,13 +63,15 @@ const Solo = props => {
       .headshotKills;
 
   // comparison function
-  const isMax = (comparison, index) => {
-    console.log('test is Max: ' + comparison + ' index: ' + index);
-
-    if (comparison[index]) {
+  const isMax = (type, data, index) => {
+    console.log('test is Max: ' + data.kd + ' index: ' + index);
+    console.log(Object.values(data));
+    console.log(data[type]);
+    console.log(index);
+    if (data[type] == index) {
       return 'maxValue';
     } else {
-      return null;
+      return 'false';
     }
   };
 
@@ -83,14 +85,50 @@ const Solo = props => {
         ) : (
           <Grid item xs={12} className='statsGrid'>
             <Grid item xs={12}>
-              <p id='stats' className={isMax(props.comparison, props.index)}>
+              <p
+                id='stats'
+                className={isMax('kd', props.comparisonData, props.index)}
+              >
                 K/D: {stats_kd_fpp}
               </p>
-              <p id='stats'>Wins: {stats_wins_fpp}</p>
-              <p id='stats'>Kills: {stats_kills_fpp}</p>
-              <p id='stats'>Top10s: {stats_top10s_fpp}</p>
-              <p id='stats'>LongestKill: {stats_longestKill_fpp}</p>
-              <p id='stats'>Headshot Kills: {stats_headshotKills_fpp}</p>
+              <p
+                id='stats'
+                className={isMax('wins', props.comparisonData, props.index)}
+              >
+                Wins: {stats_wins_fpp}
+              </p>
+              <p
+                id='stats'
+                className={isMax('kills', props.comparisonData, props.index)}
+              >
+                Kills: {stats_kills_fpp}
+              </p>
+              <p
+                id='stats'
+                className={isMax('top10s', props.comparisonData, props.index)}
+              >
+                Top10s: {stats_top10s_fpp}
+              </p>
+              <p
+                id='stats'
+                className={isMax(
+                  'longestKill',
+                  props.comparisonData,
+                  props.index
+                )}
+              >
+                LongestKill: {stats_longestKill_fpp}
+              </p>
+              <p
+                id='stats'
+                className={isMax(
+                  'headshotKills',
+                  props.comparisonData,
+                  props.index
+                )}
+              >
+                Headshot Kills: {stats_headshotKills_fpp}
+              </p>
             </Grid>
           </Grid>
         )

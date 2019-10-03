@@ -69,7 +69,14 @@ class currentGameType extends Component {
     console.log(headshotKills);
 
     const comparisonCopy = this.state.comparisonData;
+
     comparisonCopy.kd = indexHighValue(kd);
+    comparisonCopy.wins = indexHighValue(wins);
+    comparisonCopy.kills = indexHighValue(kills);
+    comparisonCopy.top10s = indexHighValue(top10s);
+    comparisonCopy.longestKill = indexHighValue(longestKill);
+    comparisonCopy.headshotKills = indexHighValue(headshotKills);
+
     this.setState({ comparisonData: comparisonCopy });
     console.log(this.state.comparisonData);
   }
@@ -82,7 +89,7 @@ class currentGameType extends Component {
             data={this.props.data}
             index={this.props.index}
             view={this.props.view}
-            comparison={this.state.comparisonData}
+            comparisonData={this.state.comparisonData}
           />
         );
       case 'duo':
