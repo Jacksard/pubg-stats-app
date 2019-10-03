@@ -84,6 +84,9 @@
   .rankIcon {
     transform: translate(-43px, 80px) !important;
   }
+  .playerName {
+    font-size: 16px !important;
+  }
 }
 @media only screen and (max-width: 411px) {
   /* styles for narrow screens */
