@@ -46,6 +46,11 @@ button {
   height: 30px;
   padding: 5px;
   margin: 5px;
+  text-decoration: none !important;
+}
+
+button:focus {
+  outline: 0;
 }
 
 ul {
