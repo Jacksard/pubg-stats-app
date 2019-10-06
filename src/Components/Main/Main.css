@@ -27,7 +27,9 @@
 }
 
 .submitButton {
-  margin: 10px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  height: 40px;
   background-color: rgb(252, 192, 62) !important;
 }
 
