@@ -95,8 +95,8 @@
     max-width: 165px;
   }
   .rankIcon {
-    width: 220px;
-    height: 220px;
-    transform: translate(-35px, 80px) !important;
+    width: 180px;
+    height: 180px;
+    transform: translate(-13px, 100px) !important;
   }
 }
