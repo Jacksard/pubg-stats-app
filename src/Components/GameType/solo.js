@@ -85,7 +85,7 @@ const Solo = props => {
           </div>
         ) : (
           <Grid item xs={12} className='statsGrid'>
-            <Grid item xs={12}>
+            <Grid item xs={12} className='test'>
               <p id='stats'>
                 K/D:{' '}
                 <span
